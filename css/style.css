@@ -109,8 +109,8 @@ body{
     width: 200px;
     height: 200px;
     border-radius: 30px;
-    /* background-color:#f80707; */
-    background-color: #c4bd8a;
+    background-color:#f80707;
+    /* background-color: #c4bd8a; */
     /* transform: rotate(45deg); */
     opacity: .5;
     float:left;
@@ -123,8 +123,8 @@ body{
     width: 200px;
     height: 200px;
     border-radius: 30px;
-    /* background-color:#ffdc2a; */
-    background-color: #c4bd8a;
+    background-color:#ffdc2a;
+    /* background-color: #c4bd8a; */
     /* transform: rotate(45deg); */
     opacity: .5;
     float:left;
@@ -138,8 +138,8 @@ body{
     width: 200px;
     height: 200px;
     border-radius: 30px;
-    /* background-color:#0050e9; */
-    background-color: #c4bd8a;
+    background-color:#0050e9;
+    /* background-color: #c4bd8a; */
     /* transform: rotate(45deg); */
     opacity: .5;
     float:left;
