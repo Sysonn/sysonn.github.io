@@ -19,6 +19,11 @@ body{
     margin-top: 12%;
 }
 
+h1{
+    font-family: 'Nunito', sans-serif;
+    /* color: #555; */
+}
+
 #logo{
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
@@ -162,6 +167,11 @@ body{
     align-items: center;
 }
 
+#main-content-wrap{
+    font-family: 'Nunito', sans-serif;
+    color: #999;
+}
+
 #basic-block{
     min-width: 250px;
     max-width: 250px;
@@ -176,15 +186,17 @@ body{
     line-height: 250px;
     text-align: center;
     font-size: 24px;
-    
+    transform: scale(1);
+    transition-duration: .5s;
 }
 
 #basic-block:hover{
 
-    background-color: rgb(252, 252, 252);
+    /* background-color: rgb(252, 252, 252); */
     box-shadow: 5px 5px 12px rgb(163, 155, 129, .8);
     cursor: pointer;
-    
+    transform: scale(1.1);
+    transition-duration: .5s;
 }
 
 #basic-block:active{
