@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/load.js"></script>
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+ 
+  <title>Amazon</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+
+        <div id="nav-bar">
+            <div id="a-logo"><h1>amazon</h1></div>
+            <div id="search-bar-wrapper">
+
+                <div class="search-select-main">
+                <select>
+                  <option>Departments</option>
+                  <option>Clothing</option>
+                  <option>Electronics</option>
+                  <option>Music</option>
+                  <option>Video Games</option>
+                </select>
+                </div>
+
+                <input id="search-bar-main" onClick="focusSearchBar();">
+                <div id="search-submit-main">GO</div>
+            </div>
+        </div>
+
+        <br>
+
+        <div id="content-block">
+         <!--AJAX LOAD HERE-->
+
+        </div>
+    </div>
+ 
+  </body>
+</html>

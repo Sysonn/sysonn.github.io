@@ -1,0 +1,254 @@
+body{
+  background-color: #fcfae3;
+  margin: 0;
+  overflow-y: scroll;
+}
+
+
+#nav-bar{
+    height: 7em;
+    /* background-color: #fff; */
+    margin-top: -22px;
+    font-family: arial;
+    font-weight: bold;
+    color: #888;
+    padding: 10px;
+}
+
+#header-content-wrap{
+    margin-top: 12%;
+}
+
+#logo{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    letter-spacing: -4px;
+    color: #999;
+}
+
+#logo-container{
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+    display: none;
+}
+
+#welcome-container{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    letter-spacing: -3px;
+    color: #999;
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    display: none;
+    align-items: center;
+}
+
+#diamond-block{
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: -140px;
+    margin-bottom: 120px;
+    z-index: -999;
+    display: none;
+    text-align: center;
+    align-items: center;
+
+}
+
+#diamond-center-parent{
+    width: 100%;
+    margin-top: 550px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+
+}
+
+
+#diamond-white {
+    width: 80px;
+    height: 80px;
+    border-radius: 30px;
+    background-color:white;
+    transform: rotate(45deg);
+    float:left;
+    display:block;
+    position: relative;
+    z-index: 888;
+    margin-top: 60px;
+    text-align: center;
+    align-items: center;
+    opacity: 0;
+    
+  }
+
+#diamond-grey {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color:#444;
+    float:left;
+    display:block;
+    position: relative;
+    z-index: 999;
+    margin-top: 15px;
+    margin-left: 15px;
+    
+  }
+
+
+
+#diamond-red {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    /* background-color:#f80707; */
+    background-color: #c4bd8a;
+    /* transform: rotate(45deg); */
+    opacity: .5;
+    float:left;
+    display:block;
+    position: relative;
+    
+  }
+
+#diamond-yellow {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    /* background-color:#ffdc2a; */
+    background-color: #c4bd8a;
+    /* transform: rotate(45deg); */
+    opacity: .5;
+    float:left;
+    display:block;
+    position: relative;
+    margin-left: -150px;
+    z-index: 100;
+}
+
+#diamond-blue {
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    /* background-color:#0050e9; */
+    background-color: #c4bd8a;
+    /* transform: rotate(45deg); */
+    opacity: .5;
+    float:left;
+    display:block;
+    position: relative;
+    margin-left: -150px;
+    z-index: 1;
+}
+
+#generic-container{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    color: #999;
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    display: block;
+    align-items: center;
+}
+
+#basic-block{
+    min-width: 250px;
+    max-width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 5px 12px rgb(163, 155, 129, .5);
+    margin-right: 30px;
+    display: block;
+    opacity: 0;
+    width: 100%;
+    line-height: 250px;
+    text-align: center;
+    font-size: 24px;
+    
+}
+
+#basic-block:hover{
+
+    background-color: rgb(252, 252, 252);
+    box-shadow: 5px 5px 12px rgb(163, 155, 129, .8);
+    cursor: pointer;
+    
+}
+
+#basic-block:active{
+    /* background-color: rgb(192, 192, 192); */
+    background-color: #f0f0f0;
+    box-shadow: 4px 4px 12px rgb(163, 155, 129, 1);
+
+    
+}
+
+#flip-block{
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: white;
+    /* box-shadow: 5px 5px 12px rg.(163, 155, 129, .5); */
+    margin-right: 20px;
+    display: block;
+    opacity: 0;
+    
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+#header-content-wrap{
+    margin-top: 35%;
+}
+#basic-block{
+    min-width: 250px;
+    max-width: 500px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 5px 12px rgb(163, 155, 129, .5);
+    margin-right: 30px;
+    display: block;
+    opacity: 0;
+    width: 100%;   
+}
+
+
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    
+
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		white-space: nowrap;
+    }
+    
+}

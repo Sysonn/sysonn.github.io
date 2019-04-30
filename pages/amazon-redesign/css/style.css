@@ -1,0 +1,118 @@
+body{
+  /* background-color: #f5f2d0; */
+  background-color: #fff;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+
+#nav-bar{
+    height: 7em;
+    background-color: #1a2d4c;
+    margin-top: -22px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+}
+#a-logo{
+    margin-top: 40px;
+}
+
+#content-block{
+    margin-left: 50px;
+}
+
+#search-bar-wrapper{
+    margin-left: 180px;
+    margin-top: -50px;
+    white-space: nowrap;
+}
+
+#search-bar-wrapper:focus{
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+    }
+
+/* #search-select-main{
+
+    float:left;
+    display: block;
+    margin-top: 0px;
+} */
+
+#search-bar-main{
+    height: 30px;
+    width: 50%;
+    border: none;
+    border-radius: 0px 0px 0px 0px;
+    margin-top: 0px;
+    display: block;
+    font-size: 1em;
+    padding-left: 20px;
+    float:left;
+    
+}
+
+#search-bar-main:focus{
+    outline: none;
+}
+
+#search-submit-main{
+    background-color:#f4b642;
+    width: 50px;
+    height: 32px;
+    margin-top: 0px;
+    display: inline-block;
+    /* float: left; */
+    border-radius: 0px 5px 5px 0px;
+    text-align: center;
+    line-height: 32px;
+    color: #1a2d4c;
+    cursor: pointer;
+}
+
+#search-submit-main:hover{
+    background-color:#e99700;
+}
+
+#demo2{
+    font-size: 72px;
+    color: Black;
+}
+
+/********* Start Custom Select *************************/
+.search-select-main {
+    /* position: relative; */
+    margin-top: 0px;
+    display: block;
+    float: left;
+    z-index: 999;
+    
+  }
+  
+  .search-select-main select {
+    /* display: none; hide original SELECT element: */
+    min-width: 150px;
+    background-color: rgb(88, 113, 139);
+    border-radius: 0px;
+    height: 32px;
+    -webkit-appearance: none;
+    padding-left: 10px;
+    font-size: 14px;
+    color: white;
+  }
+  
+
+
+  /********* End Custom Select *************************/
+
+  #basic-block{
+      width: 200px;
+      height: 250px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 5px 5px 12px rgb(163, 155, 129);
+      margin-right: 20px;
+      
+  }
