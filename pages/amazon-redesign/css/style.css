@@ -17,6 +17,7 @@ body{
     position: fixed;
     z-index: 999;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, .3);
+    min-width: 1600px;
 }
 
 #nav-buttons{
@@ -340,4 +341,10 @@ body{
     border-radius: 10px;
     text-align: center;
 
+}
+
+#cart-box:hover{
+    cursor: pointer;
+    /* border-radius: 10px; */
+    border-bottom: solid #e58600 2px;
 }
