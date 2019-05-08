@@ -1,5 +1,6 @@
 body{
-  background-color: #fcfae3;
+  /* background-color: #fcfae3; */
+  background-color: rgb(243, 243, 243);
   margin: 0;
   overflow-y: scroll;
 }
@@ -190,6 +191,7 @@ h1{
     transition-duration: .5s;
 }
 
+
 #basic-block:hover{
 
     /* background-color: rgb(252, 252, 252); */
@@ -197,6 +199,11 @@ h1{
     cursor: pointer;
     transform: scale(1.1);
     transition-duration: .5s;
+}
+
+#basic-block path{
+    fill: red;
+    width: 150px;
 }
 
 #basic-block:active{

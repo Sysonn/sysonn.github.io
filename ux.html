@@ -1,53 +1,81 @@
 
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+<link rel="stylesheet" type="text/css" href="./css/projects.css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
 
     
 
-    <div id="generic-container">
-    <h1 id="h1" style="margin-bottom: 100px; font-size: 50px;">ux portfolio</h1>
-    <div id="main-content-wrap" style="margin: 0 auto; display: inline-block;">
+    <div id="projects-container">
+    <h1 id="h1" style="margin-bottom: 100px; font-size: 50px;">my projects</h1>
+    <div id="projects-content-wrap" style="margin: 0 auto; display: inline-block;">
         
         <table>
                 <tbody>
                 <tr>
                 <td>
-                 <div id="basic-block" class="basic-block" style="line-height: 250px; margin-top: -22px;" onclick="goBack();">
+                 <div id="back-block" class="basic-block" style="line-height: 100px; margin-top: -22px; cursor: pointer;" onclick="goBack();">
                     <!-- <img src="img/ux_icon.svg" width="150px"> -->
                     <p style="font-size: 50px;">🡄</p>
                  </div>
                 </td>
 
                 <td>
-                 <div id="basic-block" class="basic-block" onclick="goNext();">
-                    <!-- <img src="img/ux_icon.svg" width="150px"> -->
-                    <!-- <p style="margin-top: -200px">WestRock</p> -->
-                    <p>WestRock</p>
+                 <div id="project-block" class="basic-block" onclick="goNext();">
+                        <h3>WestRock: Design Document Suite</h3>
+                        <div id="project-inner">
+                        
+                        <img id="project-img" src="img/projects/work-westrock.png" width="200px" />
+                        <p>
+                        The Design Document Suite or 'DDS' is a document automation and quality assurance application for the Procter & Gamble account at the WestRock Merchandising Displays division.
+                        The Application focuses on uploading Excel documents exported in HTML format with developed UI
+                        for users to link project based customer data to appropriate ‘cells’, eliminating redundant
+                        copy+paste keystrokes and improving quality. (JavaScript/AJAX, PHP, MSSQL.).
+                        <br>
+                        Responsible for coordinating, developing and supporting design process automation and quality
+                        assurance.
+                      
+                        <br><br>
+                        (Prototype demo available. Source code is private by request of the company.) 
+                        <div id="project-button">Demo</div><div id="project-button">GIT</div>
+                        </p>
+                        
+                    </div>
+                    
                  </div>
                 </td>
         
                 <td>
-                <div id="basic-block" class="basic-block">
-                        <!-- <img src="img/resume_icon.svg" width="150px"> -->
-                        <!-- <p style="margin-top: -200px">Ghost.Link</p> -->
-                        <p>ghost.link</p>
-                </div>
+                 <div id="project-block" class="basic-block">
+                        <h3>Amazon Redesign</h3>
+                        <div id="project-inner">
+                        
+                        <img id="project-img" src="img/projects/ama.png" width="200px" />
+                        <p>
+                        My take on a better Amazon.
+                        <a href="pages/amazon-redesign/index.html"><div id="project-button">Demo</div></a><div id="project-button">GIT</div>
+                        </p>
+                        
+                    </div>
+                    
+                 </div>
                 </td>        
                 
                 <td>
-                <div id="basic-block" class="basic-block">
-                        <!-- <img src="img/about_icon.svg" width="150px"> -->
-                        <!-- <p style="margin-top: -200px">frndship</p> -->
-                        <p>frndship</p>
-                </div>
+                 <div id="project-block" class="basic-block">
+                    <div id="project-inner">
+                        <h3>ghost.link</h3>
+                    </div>
+                    
+                 </div>
                 </td>  
         
                 <td>
-                <div id="basic-block" class="basic-block">
-                        <!-- <img src="img/contact_icon.svg" width="150px"> -->
-                        <!-- <p style="margin-top: -200px">Amazon Redesign</p> -->
-                        <p>Amazon Redesign</p>
-                </div>
+                 <div id="project-block" class="basic-block">
+                    <div id="project-inner">
+                        <h3>frndship</h3>
+                    </div>
+                    
+                 </div>
                 </td>  
         
                 </tr>

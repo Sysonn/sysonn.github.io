@@ -1,0 +1,103 @@
+
+#project-block{
+    /* min-width: 500px; */
+    max-width: 1200px;
+    height: auto;
+    min-height: 300px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 5px 12px rgb(163, 155, 129, .5);
+    margin-right: 30px;
+    display: block;
+    opacity: 0;
+    width: 100%;  
+    margin: 0 auto; 
+    display: inline-block;
+
+}
+
+#project-block h3{
+    font-weight: 300;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+#project-inner{
+    padding: 20px;
+    /* white-space: nowrap; */
+
+}
+
+#project-block p{
+    font-size: 12px;
+    text-align: left;
+    padding: 0px 20px 0px 30px;
+    /* display: inline-block; */
+    /* float:left; */
+}
+
+#project-img{
+    display:inline-block;
+    float: left;
+    padding-right: 40px;
+}
+
+#projects-container{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    color: #999;
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    display: block;
+    align-items: center;
+}
+
+#projects-content-wrap{
+    width: 100%;
+    font-family: 'Nunito', sans-serif;
+    color: #999;
+
+}
+
+#project-button{
+    width: 100px;
+    height: 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 20px;
+    background-color: grey;
+    font-size: 14px;
+    color: white;
+    float: left;
+    margin-bottom: 20px;
+}
+
+
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    
+
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		white-space: nowrap;
+    }
+    
+
