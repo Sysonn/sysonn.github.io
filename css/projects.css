@@ -17,12 +17,16 @@ a {
     transition-duration: .5s;
     height: auto;
     width: 100px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 #back-button:hover{
     cursor: pointer;
     transform: scale(1.1);
     transition-duration: .2s;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
     
 }
 
