@@ -1,3 +1,11 @@
+#projects{
+    margin-bottom: 50px; 
+    font-size: 80px; 
+    float: left; 
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
 a {
     display: block;
 }
@@ -8,6 +16,7 @@ a {
     transform: scale(1);
     transition-duration: .5s;
     height: auto;
+    width: 100px;
 }
 
 #back-button:hover{
@@ -166,7 +175,20 @@ a {
     @media 
     only screen and (max-width: 760px),
     (min-device-width: 768px) and (max-device-width: 1024px)  {
-        
+        #projects{
+            font-size: 50px;
+        }
+
+        #back-button{
+            align-items: center;
+            text-align: center;
+            width: 150px;
+            display: block;
+            margin-left: 100px;
+            transform: scale(1);
+            transition-duration: .5s;
+            height: auto;
+        }
 
         #project-block{
             /* min-width: 500px; */
@@ -180,10 +202,12 @@ a {
             margin-right: 30px;
             display: block;
             opacity: 0;
-            width: 100%;  
+            width: 92%;  
             margin: 0 auto; 
             padding-top: 30px;
             padding-left: 20px;
+            text-align: center;
+            align-items: center;
         
         }
 
@@ -193,7 +217,8 @@ a {
             /* display: block; */
             /* position: relative; */
             float: left;
-           
+            text-align: center;
+            align-items: center;  
         }
 
         #project-text{
@@ -202,6 +227,34 @@ a {
             display: inline-block;
             margin-left: 0px;
         
+        }
+
+        #project-button{
+            width: 150px;
+            height: 50px;
+            border-radius: 20px;
+            text-align: center;
+            display: inline-block;
+            margin-left: 0px;
+            background-color: grey;
+            font-size: 18px;
+            color: white;
+            /* float: left; */
+            margin-bottom: 20px;
+            line-height: 50px;
+        }
+
+        #project-button:hover{
+            border-radius: 20px;
+            text-align: center;
+            display: inline-block;
+            margin-left: 0px;
+            background-color: rgb(73, 73, 73);
+            font-size: 18px;
+            color: white;
+            /* float: left; */
+            margin-bottom: 20px;
+            line-height: 50px;
         }
 
         /* Force table to not be like tables anymore */

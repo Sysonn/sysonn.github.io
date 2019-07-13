@@ -11,6 +11,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/load.js"></script>
     
@@ -23,6 +26,17 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
+        
+        <div id="pop-overlay">
+            <div id="pop">
+                <div id="closepop" onClick="closepop();">x</div>
+            <img src="../../img/projects/construction.png" style="width: 100%; margin-top: 100px;">
+            <br><br><br>
+            <div id="pop-button" onClick="closepop();">continue to desktop site</div>
+            
+            <img src="../../img/ds-sign.png" style="width: 50%; margin-top: 100px;">
+            </div>
+        </div>
 
         <div id="nav-bar">
             <div id="a-logo">a</div>
