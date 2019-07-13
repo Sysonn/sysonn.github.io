@@ -6,68 +6,136 @@
     
 
     <div id="projects-container">
-    <h1 id="h1" style="margin-bottom: 100px; font-size: 50px;">my projects</h1>
+                <div id="back-block" 
+                style="
+                line-height: 10px; 
+                margin-top: -22px; 
+                cursor: pointer; 
+                float: left; 
+                margin-left: 50px;
+                " 
+                >
+                
+                <div id="back-button"><img src="img/backarrow.png" width="100px" style="margin-top: 100px;" onclick="goBack();"></div>
+                 
+                </div>
+    <h1 id="h1" style="margin-bottom: 50px; font-size: 80px; float: left; margin-left: 100px;">My Projects</h1>
     <div id="projects-content-wrap" style="margin: 0 auto; display: inline-block;">
         
         <table>
                 <tbody>
                 <tr>
+            
+
                 <td>
-                 <div id="back-block" class="basic-block" style="line-height: 100px; margin-top: -22px; cursor: pointer;" onclick="goBack();">
-                    <!-- <img src="img/ux_icon.svg" width="150px"> -->
-                    <p style="font-size: 50px;">🡄</p>
+                 <div id="project-block" class="basic-block">
+
+                    <div id="project-title-wr">
+                        <img id="project-img" src="img/projects/wrLogo.png" width="50px"/>
+                        WestRock
+                    </div>
+                    <div id="project-subtitle-wr">Design Document Suite</div>
+
+                    <div id="project-inner">
+                        
+                        <img id="project-img" src="img/projects/westrock-windows.png" width="300px" />
+                        
+                        <div id="project-text">
+                            <p>
+                            The Design Document Suite or 'DDS' is a document automation and quality assurance application for the Procter & Gamble account at the WestRock Merchandising Displays division.
+                            The Application focuses on uploading Excel documents exported in HTML format with developed UI
+                            for users to link project based customer data to appropriate ‘cells’, eliminating redundant
+                            copy+paste keystrokes and improving quality. (JavaScript/AJAX, PHP, MSSQL.).
+                            <br>
+                            Responsible for coordinating, developing and supporting design process automation and quality
+                            assurance.
+                        
+                            <br><br>
+                            (Prototype demo available. Source code is private by request of the company.)
+                            <br><br> 
+                            <div id="project-button" style="background-color: #0984C6">Demo</div>
+                            <div id="project-button">GIT</div>
+                            <div id="project-button">The Process</div>
+                            </p>
+                        </div>
+                    </div>
+                    
                  </div>
                 </td>
 
                 <td>
-                 <div id="project-block" class="basic-block" onclick="goNext();">
-                        <h3>WestRock: Design Document Suite</h3>
-                        <div id="project-inner">
-                        
-                        <img id="project-img" src="img/projects/work-westrock.png" width="200px" />
-                        <p>
-                        The Design Document Suite or 'DDS' is a document automation and quality assurance application for the Procter & Gamble account at the WestRock Merchandising Displays division.
-                        The Application focuses on uploading Excel documents exported in HTML format with developed UI
-                        for users to link project based customer data to appropriate ‘cells’, eliminating redundant
-                        copy+paste keystrokes and improving quality. (JavaScript/AJAX, PHP, MSSQL.).
-                        <br>
-                        Responsible for coordinating, developing and supporting design process automation and quality
-                        assurance.
-                      
-                        <br><br>
-                        (Prototype demo available. Source code is private by request of the company.) 
-                        <div id="project-button">Demo</div><div id="project-button">GIT</div>
-                        </p>
-                        
-                    </div>
-                    
-                 </div>
+                        <div id="project-block" class="basic-block">
+       
+       
+                           <div id="project-inner">
+                               
+                               <img id="project-img" src="img/projects/amazon-redesign.png" width="350px" style="padding-bottom: 30px;" />
+                               
+                               <div id="project-text">
+                                   <p>
+                                   My take on a better Amazon.
+                                   <br><br>
+                                   
+                                   <br><br> 
+                                
+                                   <div style="display:inline-block;">
+                                        <a href="pages/amazon-redesign/index.html">
+                                            <div id="project-button">Demo</div>
+                                        </a>
+                                    </div>
+
+                                   <div id="project-button">GIT</div>
+                                   </p>
+                               </div>
+                           </div>
+                           
+                        </div>
                 </td>
-        
+
                 <td>
-                 <div id="project-block" class="basic-block">
-                        <h3>Amazon Redesign</h3>
-                        <div id="project-inner">
-                        
-                        <img id="project-img" src="img/projects/ama.png" width="200px" />
-                        <p>
-                        My take on a better Amazon.
-                        <a href="pages/amazon-redesign/index.html"><div id="project-button">Demo</div></a><div id="project-button">GIT</div>
-                        </p>
-                        
-                    </div>
-                    
-                 </div>
-                </td>        
-                
-                <td>
-                 <div id="project-block" class="basic-block">
-                    <div id="project-inner">
-                        <h3>ghost.link</h3>
-                    </div>
-                    
-                 </div>
-                </td>  
+                        <div id="project-block" class="basic-block">
+       
+       
+                           <div id="project-inner">
+                               
+                               <img id="project-img" src="img/projects/ghost-link-img.PNG" width="350px" style="padding-bottom: 30px;" />
+                               
+                               <div id="project-text">
+                                   <p>
+                                        Ghost Link was a group senior capstone project for the Cybersecurity Program at the University of Cincinnati. 
+                                        <br>
+                                        The project won the Western & Southern Award for IT Expo Presentation in Cybersecurity. 
+                                        <br><br>
+                                        This tool is an all-in-one URL scanning service that detects malicious websites using powerful file and network scanners. 
+                                        <br>
+                                        Maliciousness scores are appended to the outputs of the site's analyzers, quickly helping analysts determine if a URL is malicious or not.
+                                        <br><br>
+                                        Problem & Solution:
+                                        <br>
+                                        •    Security professionals are required to use several tools daily to analyze URLs.
+                                        <br>
+                                        •    Using multiple tools for analysis decreases efficiency.
+                                        <br>
+                                        •    Most URL scanning tools do not utilize file scanning.
+                                        <br>
+                                        •    Ghost Link centralizes URL and File analysis, allowing security professionals to become more efficient.
+                                   <br><br> 
+                                
+                                   <div style="display:inline-block;">
+                                        <a href="pages/ghost-link/">
+                                            <div id="project-button">Demo</div>
+                                        </a>
+                                    </div>
+
+                                   <div id="project-button">GIT</div>
+                                   </p>
+                               </div>
+                           </div>
+                           
+                        </div>
+                </td>
+     
+                 
         
                 <td>
                  <div id="project-block" class="basic-block">

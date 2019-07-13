@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="static/custom.css">
+    </head>
+    <body>
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              <div id="logo-container"><img src="static/img/ghost-logo-w_shadow.svg" alt="logo" width="90px" style="margin-top: -25px; margin-right: 300px;"></div>
+              <div id="name-container" style="margin-left: 200px;"><span class="navbar-text"><span class="nav-title">GHOST<span class="nav-title-color">.LINK</span></span></span></div>
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
+            <ul class="nav navbar-nav">
+              <li><form method="get" action="index.html">
+                  <button class="btn btn-default navbar-btn btn-lg">
+                    <span class="glyphicon glyphicon-home" style="margin-right: 5px;"></span>Home
+                    </button>
+                </form>
+             </li>
+              <li><form method="get" action="results.html"></a><button class="btn btn-default navbar-btn btn-lg"><span class="glyphicon glyphicon-align-left" style="margin-right: 5px;"></span>Results</button></form></li>
+              <li><form method="get" action="api.html"></a><button class="btn btn-default navbar-btn btn-lg"><span class="glyphicon glyphicon-flash" style="margin-right: 5px;"></span>API</button></form></li>
+              <li><form method="get" action="about.html"></a><button class="btn btn-default navbar-btn btn-lg"><span class="glyphicon glyphicon-info-sign" style="margin-right: 5px;"></span>About</button></form></li>
+            </ul>
+          </div>
+        </div>
+     </nav>
+
+     <div class="container">
+      <h3>Recent Results</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>URL</th>
+            <th>Time Submitted</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if scan %}
+            {% for value in scan[:3] %}
+              <tr>
+                <td>{{ value['url'] }}</td>
+                <td>{{ value['scanned_time'] }} EST</td>
+              </tr>
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td> No current results! </td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+</body>
+</html>

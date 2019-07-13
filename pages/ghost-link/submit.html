@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="static/custom.css">
+
+    </head>
+    <body>
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              <div id="logo-container"><img src="static/img/ghost-logo-w_shadow.svg" alt="logo" width="90px" style="margin-top: -25px; margin-right: 300px;"></div>
+              <div id="name-container" style="margin-left: 200px;"><span class="navbar-text"><span class="nav-title">GHOST<span class="nav-title-color">.LINK</span></span></span></div>
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
+            <ul class="nav navbar-nav">
+              <li><form method="get" action="index.html">
+                  <button class="btn btn-default navbar-btn btn-lg">
+                    <span class="glyphicon glyphicon-home" style="margin-right: 5px;"></span>Home
+                    </button>
+                </form>
+             </li>
+              <li><form method="get" action="results.html"></a><button class="btn btn-default navbar-btn btn-lg"><span class="glyphicon glyphicon-align-left" style="margin-right: 5px;"></span>Results</button></form></li>
+              <li><form method="get" action="api.html"></a><button class="btn btn-default navbar-btn btn-lg"><span class="glyphicon glyphicon-flash" style="margin-right: 5px;"></span>API</button></form></li>
+              <li><form method="get" action="about.html"></a><button class="btn btn-default navbar-btn btn-lg"><span class="glyphicon glyphicon-info-sign" style="margin-right: 5px;"></span>About</button></form></li>
+            </ul>
+          </div>
+        </div>
+     </nav>      
+      
+<div class="container">
+  <div class="row">
+    <div class="col col-md-6">
+
+      <h3> Results for: {{ url }}</h3>
+      <b>Time Submitted:</b> {{ scanned_time }} EST
+      <br>
+      <b>Filename:</b> {{ filename }}
+    </div>
+    <div class="col col-md-4">
+      
+      <!-- <img id="myImg" src="data:image/png;base64, {{screenshot}}" height="240" width="420" /> -->
+      <img id="myImg" src="static/img/scan.png" height="240" width="420" />
+    
+    </div>
+  </div>
+  
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+<!--- load Modal -->
+  <div id="loadModal" class="modal">
+      <div style="
+      background-color: white; 
+      width: 80%; 
+      height: 100%; 
+      border-radius: 20px;
+      margin:0 auto;
+      margin-top: -50px;
+      ">
+
+      <div style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      ">
+        <br>
+        <img src="static/img/ghost-ani.svg" width="30px">
+        <img src="static/img/ghost-ani.1.svg" width="30px">
+        <img src="static/img/ghost-ani.2.svg" width="30px">
+        <img src="static/img/ghost-ani.3.svg" width="30px">
+        <img src="static/img/ghost-ani.4.svg" width="30px">
+        <br>
+        <br>
+        <div style="text-align: center; font-size: 18px; font-family:'Varela Round', sans-serif; color: #5ABA47;">Checking for monsters...</div>
+        
+
+        </div>
+        
+      </div>
+  </div>
+
+
+  <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+      var img = document.getElementById('myImg');
+      var modalImg = document.getElementById("img01");
+      var captionText = document.getElementById("caption");
+      img.onclick = function(){
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          captionText.innerHTML = this.alt;
+      }
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() { 
+          modal.style.display = "none";
+      }
+      </script>
+
+<script>
+  // Get the LOAD modal
+  var modal2 = document.getElementById('loadModal');
+
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  $(window).on('load',function(){
+      modal2.style.display = "block";
+
+      setTimeout(function(){
+       modal2.style.display = "none";
+    },4000);
+
+
+
+  });
+  </script>
+
+
+  <br>
+<div class="col col-md-14">
+  <ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#results"><div id="tabStyle">Results</div></a></li>
+  <li><a data-toggle="tab" href="#dom"><div id="tabStyle">Content</div></a></li>
+  <li><a data-toggle="tab" href="#pcap"><div id="tabStyle">PCAP</div></a></li>
+  </ul>
+</div>
+</div>
+<br>
+<div class="tab-content">
+  <div id="results" class="tab-pane fade in active">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+          <h5>URL Information:</h5>
+          <div class="panel panel-default">
+            <div class="panel-heading">VT URL Scan</div>
+            <div class="panel-body">
+            {% if vtlookup %}
+                {% for key, value in vtlookup.results.items() %}
+                  <b>{{ key }}</b>:
+                  {{ value }}
+                  <br>
+                {% endfor %}
+            {% else %}
+               No current results!
+            {% endif %}
+          </div>
+          </div>
+          <div class="panel panel-default">
+          <div class="panel-heading">Google Safebrowse</div>
+          <div class="panel-body">
+              {% if safebrowse %}
+                {% for item in safebrowse['matches'] %}
+                  <b>ThreatType:</b>
+                  {{ item['threatType'] }}
+                  <br>
+                  <b>URL:</b>
+                  {{ item['threat']['url'] }}
+                {% endfor %}
+              {% else %}
+                No results in the database.
+              {% endif %}
+
+          </div>
+          </div>
+          <div class="panel panel-default">
+          <div class="panel-heading">Phishtank</div>
+          <div class="panel-body">
+            {% if phishtank != None %}
+              <b>URL:</b> {{ phishtank[0] }} <br>
+              <b>Valid:</b> {{ phishtank[1] }} <br>
+              <b>Verified:</b> {{ phishtank[2] }}
+            {% else %}
+              No results in the database.
+            {% endif %}
+          </div>
+          </div>
+          <br>
+          <h5>File Information:</h5>
+          <div class="panel panel-default">
+          <div class="panel-heading">VT File Scan</div>
+          <div class="panel-body">
+              {% if vt_filename != None %}
+                  {% for key, value in vt_filename.results.items() %}
+                    <b>{{ key }}</b>:
+                    {{ value }}
+                    <br>
+                  {% endfor %}
+              {% else %}
+                  No current results!
+              {% endif %}
+          </div>
+          </div>
+          <div class="panel panel-default">
+          <div class="panel-heading">Yara Scan</div>
+          <div class="panel-body">
+              {% if yara %}
+                {{ yara }}
+              {% else %}
+                No file to scan.
+              {% endif %}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="dom" class="tab-pane fade">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+          <div class="panel panel-default">
+          <div class="panel-heading">HTML Source</div>
+          <div class="panel-body" style="max-height: 10;overflow-y: scroll;">
+              <pre><code>{{ dom }}</code></pre>
+          </div>
+          </div>
+          <div class="panel panel-default">
+          <div class="panel-heading">Links</div>
+          <div class="panel-body" style="max-height: 10;overflow-y: scroll;">
+              <pre><code>{{ links }}</code></pre>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pcap" class="tab-pane fade">
+    <div class="container">
+      <div class="row">
+        <div class="col col-md-12">
+          <div class="panel panel-default">
+          <div class="panel-heading">PCAP</div>
+          <div class="panel-body">
+              In progress!
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

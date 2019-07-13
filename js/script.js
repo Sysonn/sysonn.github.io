@@ -25,6 +25,7 @@ function goNext(){
     setTimeout(function(){
     $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
     $('#root').load('./ux.html');
+    //window.location.href = './ux.html';
     }, 500); 
     //window.history.pushState("Details", "Title", "/amazon-redesign/page2/");
 

@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-
+      
     //$('body,html').animate({scrollTop: 350}, 800);
     $('.basic-block').velocity("transition.fadeIn", {stagger: 150, drag: true, duration: 1000});
                 

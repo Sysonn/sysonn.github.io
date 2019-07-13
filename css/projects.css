@@ -1,8 +1,41 @@
+a {
+    display: block;
+}
+
+#back-button{
+    display: block;
+    margin-left: 100px;
+    transform: scale(1);
+    transition-duration: .5s;
+    height: auto;
+}
+
+#back-button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: .2s;
+    
+}
+
+
+#projects-container{
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    color: #999;
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    /* text-align: center; */
+    font-size: 18px;
+    display: block;
+    align-items: center;
+}
 
 #project-block{
     /* min-width: 500px; */
     max-width: 1200px;
     height: auto;
+    overflow: auto;
     min-height: 300px;
     border-radius: 10px;
     background-color: white;
@@ -13,6 +46,8 @@
     width: 100%;  
     margin: 0 auto; 
     display: inline-block;
+    padding-top: 30px;
+    padding-left: 20px;
 
 }
 
@@ -23,9 +58,23 @@
     padding-top: 20px;
 }
 
+#project-title-wr{
+    color: #0F4C86;
+    font-size: 50px;
+    text-align: left;
+    margin-left: 50px;
+}
+
+#project-subtitle-wr{
+    color: #0F4C86;
+    text-align: left;
+    margin-left: 130px;  
+}
+
 #project-inner{
     padding: 20px;
     /* white-space: nowrap; */
+    /* background-color: pink; */
 
 }
 
@@ -38,22 +87,18 @@
 }
 
 #project-img{
-    display:inline-block;
+    padding-top: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    position: relative;
     float: left;
-    padding-right: 40px;
 }
 
-#projects-container{
-    font-family: 'Nunito', sans-serif;
-    font-weight: bold;
-    color: #999;
-    width: 100%;
-    height: 200px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 18px;
-    display: block;
-    align-items: center;
+#project-text{
+    /* background-color: magenta; */
+    position: relative;
+    margin-left: 350px;
+   
 }
 
 #projects-content-wrap{
@@ -64,16 +109,33 @@
 }
 
 #project-button{
-    width: 100px;
-    height: 20px;
+    width: 150px;
+    height: 50px;
     border-radius: 20px;
     text-align: center;
+    display: inline-block;
     margin-left: 20px;
     background-color: grey;
-    font-size: 14px;
+    font-size: 18px;
     color: white;
-    float: left;
+    /* float: left; */
     margin-bottom: 20px;
+    line-height: 50px;
+}
+
+#project-button:hover{
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 20px;
+    background-color: rgb(73, 73, 73);
+    font-size: 18px;
+    color: white;
+    /* float: left; */
+    margin-bottom: 20px;
+    line-height: 50px;
 }
 
 
@@ -101,3 +163,68 @@
     }
     
 
+    @media 
+    only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px)  {
+        
+
+        #project-block{
+            /* min-width: 500px; */
+            max-width: 1200px;
+            height: auto;
+            overflow: auto;
+            min-height: 500px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 5px 5px 12px rgb(163, 155, 129, .5);
+            margin-right: 30px;
+            display: block;
+            opacity: 0;
+            width: 100%;  
+            margin: 0 auto; 
+            padding-top: 30px;
+            padding-left: 20px;
+        
+        }
+
+        #project-img{
+            padding-top: 10px;
+            padding-right: 10px;
+            /* display: block; */
+            /* position: relative; */
+            float: left;
+           
+        }
+
+        #project-text{
+            margin-top: 20px;
+            float: left;
+            display: inline-block;
+            margin-left: 0px;
+        
+        }
+
+        /* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+        position: relative;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    
+
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		white-space: nowrap;
+    }
+        
+    }
+    
