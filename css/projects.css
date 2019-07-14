@@ -259,6 +259,7 @@ a {
             margin-left: -20px; 
         }
 
+
         #project-text{
             margin-top: 20px;
             float: left;
@@ -293,6 +294,13 @@ a {
             /* float: left; */
             margin-bottom: 20px;
             line-height: 50px;
+        }
+
+        #project-title-wr{
+            color: #0F4C86;
+            font-size: 50px;
+            text-align: left;
+            margin-left: 5px;
         }
 
         /* Force table to not be like tables anymore */
