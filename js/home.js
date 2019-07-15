@@ -41,6 +41,10 @@ $(document).ready(function() {
         $('#welcome-container').velocity("transition.slideUpBigIn", {duration: 1800, delay: 500 }, "transition.fadeIn", {duration: 2000, delay: 800 });
     }, 3200);
 
+    setTimeout(function(){
+        $('#footer-home').velocity("transition.fadeIn", {duration: 2000, delay: 800 });
+    }, 3400);
+
    
 
 //--------FUN ANIMATION (save for later) ---------------------------------------------------//

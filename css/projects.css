@@ -352,7 +352,7 @@ a {
         position: relative;
         margin: 0 auto;
         margin-bottom: 30px;
-    
+        float: none !important;
 
 	}
 	

@@ -33,12 +33,7 @@ function goNext(){
 
  function loadResume(){
 
-    $("#root").velocity("transition.fadeOut", {duration: 500, delay: 0 });
-    setTimeout(function(){
-    $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
-    window.location.href = '/resume/dereksisson.pdf';
-    }, 500); 
-    //window.history.pushState("Details", "Title", "/amazon-redesign/page2/");
+    window.open('/resume/dereksisson.pdf');
 
  };
 

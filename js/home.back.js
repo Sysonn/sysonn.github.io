@@ -32,6 +32,10 @@ $(document).ready(function() {
         $('#welcome-container').velocity("transition.fadeIn", {duration: 1800, delay: 500 }, "transition.fadeIn", {duration: 2000, delay: 800 });
 
 
+        
+        $('#footer-home').velocity("transition.fadeIn", {duration: 2000, delay: 800 });
+       
+    
    
 
 
