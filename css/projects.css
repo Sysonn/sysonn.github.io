@@ -208,6 +208,56 @@ a {
  
 }
 
+#more-project-block{
+    /* min-width: 500px; */
+    max-width: 1200px;
+    height: auto;
+    overflow: auto;
+    min-height: 100px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 5px 12px rgb(163, 155, 129, .5);
+    margin-right: 30px;
+    display: block;
+    opacity: 0;
+    width: 100%;  
+    margin: 0 auto; 
+    display: inline-block;
+    padding-top: 30px;
+    padding-left: 20px;
+
+}
+
+#more-project-button{
+    width: 250px;
+    height: 100px;
+    border-radius: 20px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 20px;
+    background-color: grey;
+    font-size: 25px;
+    color: white;
+    /* float: left; */
+    margin-top: -100px;
+    margin-bottom: 70px;
+    line-height: 100px;
+    cursor: pointer;
+    transform: scale(1);
+    transition-duration: .2s;
+    box-shadow: 2px 2px 4px rgb(163, 155, 129, .7);
+}
+
+#more-project-button:hover{
+
+    margin-left: 20px;
+    color: white;
+    transform: scale(1.09);
+    transition-duration: .2s;
+    box-shadow: 2px 8px 5px rgb(163, 155, 129, .6);
+ 
+}
+
 
 
 	/* Force table to not be like tables anymore */
@@ -277,6 +327,13 @@ a {
         
         }
 
+        #more-project-block{
+    
+            width: 92%;  
+    
+        
+        }
+
         #project-img{
             width: 100%;
             padding-top: 10px;
@@ -339,6 +396,26 @@ a {
             font-size: 50px;
             text-align: left;
             margin-left: 5px;
+        }
+
+        #more-project-button{
+            width: 250px;
+            height: 100px;
+            border-radius: 20px;
+            text-align: center;
+            display: inline-block;
+            margin-left: 30px !important;
+            background-color: grey;
+            font-size: 25px;
+            color: white;
+            /* float: left; */
+            /* margin-top: -100px; */
+            margin-bottom: 70px;
+            line-height: 100px;
+            cursor: pointer;
+            transform: scale(1);
+            transition-duration: .2s;
+            box-shadow: 2px 2px 4px rgb(163, 155, 129, .7);
         }
 
         /* Force table to not be like tables anymore */
