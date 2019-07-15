@@ -3,7 +3,11 @@ body{
   background-color: rgb(243, 243, 243);
   margin: 0;
   overflow-y: scroll;
+  height: 100%;
+  cursor: url("/img/fat-cur.cur"), url("/img/fat-cur.cur"), auto, zoom-in;
 }
+
+
 
 
 #nav-bar{
