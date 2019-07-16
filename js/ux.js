@@ -17,6 +17,18 @@ $( document ).ready(function() {
         //window.history.pushState("Details", "Title", "/amazon-redesign/page2/");
     
      };
+
+     function goBackProjects(){
+
+      $("#root").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+
+      setTimeout(function(){
+      $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
+      $('#root').load('./ux.html');
+      }, 500); 
+      //window.history.pushState("Details", "Title", "/amazon-redesign/page2/");
+  
+   };
     
      function amazonLoad(){
 
@@ -28,4 +40,14 @@ $( document ).ready(function() {
         //window.history.pushState("Details", "Title", "/amazon-redesign/page2/");
     
      };
+
+     function moreGhostLoad(){
+
+      $("#root").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+      setTimeout(function(){
+      $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
+      $('#root').load('./pages/more-projects/ghost-link.html');
+      }, 500); 
+  
+   };
     
