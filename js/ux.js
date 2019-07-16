@@ -50,4 +50,14 @@ $( document ).ready(function() {
       }, 500); 
   
    };
+
+   function moreWestRockLoad(){
+
+      $("#root").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+      setTimeout(function(){
+      $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
+      $('#root').load('./pages/more-projects/dds.html');
+      }, 500); 
+  
+   };
     

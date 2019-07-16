@@ -76,6 +76,27 @@ a {
     align-items: center;
 }
 
+#resume-block{
+    /* min-width: 500px; */
+    max-width: 1200px;
+    height: auto;
+    overflow: auto;
+    /* min-height: 500px; */
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 5px 12px rgb(163, 155, 129, .5);
+   
+    display: block;
+    opacity: 0;
+    width: 92%;  
+    margin: 0 auto; 
+    padding: 15px;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+
+}
+
 #project-block{
     /* min-width: 500px; */
     max-width: 1200px;
@@ -356,6 +377,27 @@ a {
             margin: 0 auto; 
             padding-top: 30px;
             padding-left: 20px;
+            text-align: center;
+            align-items: center;
+        
+        }
+
+        #resume-block{
+              /* min-width: 500px; */
+            max-width: 1200px;
+            height: auto;
+            overflow: auto;
+            /* min-height: 500px; */
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 5px 5px 12px rgb(163, 155, 129, .5);
+        
+            display: block;
+            opacity: 0;
+            width: 92%;  
+            margin: 0 auto; 
+            padding: 15px;
+            overflow: hidden;
             text-align: center;
             align-items: center;
         

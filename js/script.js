@@ -33,7 +33,13 @@ function goNext(){
 
  function loadResume(){
 
-    window.open('/resume/dereksisson.pdf');
+    //window.open('/resume/dereksisson.pdf');
+
+    $("#root").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+    setTimeout(function(){
+    $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
+    $('#root').load('./resume.html');
+    }, 500); 
 
  };
 
