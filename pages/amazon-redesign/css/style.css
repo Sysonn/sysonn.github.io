@@ -79,6 +79,8 @@ body{
 
 #nav-bar{
     width: 100%;
+    /* right: 0; */
+    /* padding-left: 10px; */
     height: 160px;
     background-color: #232e3e;
     margin-top: -22px;
@@ -88,7 +90,7 @@ body{
     position: fixed;
     z-index: 2;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, .3);
-    min-width: 1600px;
+    /* min-width: 1600px; */
 }
 
 #nav-buttons{
@@ -109,6 +111,20 @@ body{
 #nav-buttons:hover{
     background-color: #4e5a6b;
     cursor: pointer;
+}
+
+#nav-submenu{
+    position: relative; 
+    /* min-width: 1000px; */
+    width: 100%;
+}
+
+#nav-right-menu{
+    margin-top: -35px; 
+    position: absolute; 
+    right: 0; 
+    width: auto; 
+    display: inline-block; 
 }
 
 #a-logo{
@@ -135,6 +151,7 @@ body{
     margin-left: 180px;
     margin-top: -50px;
     white-space: nowrap;
+    width: auto;
 }
 
 #search-bar-wrapper:focus{
@@ -364,7 +381,7 @@ body{
     background-color: #eb3428;
 }
 
-/********Producs*******/
+/********Products*******/
 
 #carousel-wrapper{
     min-width: 600px;
@@ -382,12 +399,17 @@ body{
         
 }
 
-#carousel-inner{
+
+
+#scroll-inner{
     border-radius:10px;
     width: auto;
     height: 200px;
     z-index: 2;
     overflow-y: hidden;
+    overflow-x: scroll;
+    padding-bottom: 17px;
+    box-sizing: content-box;
  
 }
 
@@ -420,9 +442,68 @@ body{
     border-bottom: solid #e58600 2px;
 }
 
+
+@media only screen and (max-width: 1575px) {
+    .sell{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .gift-cards{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1215px) {
+    .today-deals{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1035px) {
+    .history{
+        display: none;
+    }
+
+    #nav-right-menu{
+        margin-top: -35px; 
+        position: absolute; 
+        right: 0;  
+        width: auto; 
+        display: inline-block; 
+    }
+
+    #nav-bar{
+        min-width:1000px;
+    }
+
+    #nav-submenu{
+        min-width: 800px;
+    }
+
+    
+}
+
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+    #nav-bar{
+        /* width: 50%; */
+    }
+
+    #nav-submenu{
+        width: 50%;
+    }
+
+    /* #nav-right-menu{
+        margin-top: -35px; 
+        position: absolute; 
+        right: 0; 
+        width: auto; 
+        display: inline-block; 
+    } */
 
     #pop-overlay{
         display: none; /* Hidden by default */

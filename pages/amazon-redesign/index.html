@@ -14,6 +14,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
+    
+    <!-- magic scroll -->
+    <!-- <link type="text/css" rel="stylesheet" href="./magicscroll/magicscroll.css"/> -->
+    <!-- <script type="text/javascript" src="./magicscroll/magicscroll.js"></script> -->
+    
     <script src="./scripts/script.js"></script>
     <script src="./scripts/load.js"></script>
     
@@ -52,44 +57,44 @@
                 </select>
                 </div>
 
-                <input id="search-bar-main" onClick="focusSearchBar();">
+                <input id="search-bar-main" onclick="focusSearchBar();">
                 <div id="search-submit-main">
                     <div id="search-submit-button">
                         <i class="material-icons" style="font-size: 25px;">search</i>
                     </div>
                 </div>
 
-                <div style="position: relative; min-width: 1000px;">
+                <div id="nav-submenu">
                     <table>
                         <tbody>
                         <tr>
 
                         <td>
-                        <div id="nav-buttons">
+                        <div id="nav-buttons" class="pickup">
                             Your pickup location
                         </div>
                         </td>     
 
                         <td>
-                        <div id="nav-buttons">
+                        <div id="nav-buttons" class="history">
                             Browse History
                         </div>
                         </td>
                         
                         <td>
-                        <div id="nav-buttons" style="color: #d47e06;">
+                        <div id="nav-buttons" class="today-deals" style="color: #d47e06;">
                             Today's Deals
                         </div>
                         </td>  
 
                         <td>
-                        <div id="nav-buttons">
+                        <div id="nav-buttons" class="gift-cards">
                             Gift Cards
                         </div>
                         </td> 
 
                         <td>
-                        <div id="nav-buttons">
+                        <div id="nav-buttons" class="sell">
                             Sell
                         </div>
                         </td> 
@@ -104,7 +109,7 @@
                         </tbody>
                     </table>
 
-                    <div style="margin-top: -35px; position: absolute; right: 0; width: auto; display: inline-block; ">
+                    <div id="nav-right-menu">
                             
                         <div style="display: inline-block; margin-right: 20px;">Account & Lists</div>
                         <div style="display: inline-block; margin-right: 20px;">Orders</div>
@@ -117,10 +122,12 @@
                         </div>
 
                     </div>
+
                 </div>
 
             </div>
-
+        
+           
        
         </div>
 

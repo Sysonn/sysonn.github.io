@@ -29,34 +29,15 @@ function focusSearchBar(){
     //document.getElementById("search-submit-main").style.boxShadow ="0 0 10px #719ECE";
 }
 
-//---test--//
+function scrollBoxRight(){
+    var leftPos = $('#scroll-inner').scrollLeft();
+    $("#scroll-inner").animate({scrollLeft: leftPos + 500}, 200);
+ 
+ }
 
-
-
-// var scrollDiv = function(){
-
-//     console.log('scrollDiv called.')
-//     //$('#carousel-wrapper').animate({scrollLeft}, 300);
-//     $('#carousel-wrapper').animate( { scrollLeft: '+=460' }, 1000);
-
-//     // var leftPos = $('#carousel-wrapper').scrollLeft();
-//     // $("#carousel-wrapper").animate({scrollLeft: leftPos - 200}, 800);
-
-// }
-
-var scrollDiv = function(){
-
-    console.log('called');
-
-    $('html,body').animate({
-        scrollLeft: $('#carousel-wrapper').css('right')
-    }, 500, function() {
-
-        $('html, body').animate({
-            scrollLeft: 0
-        }, 500);
-
-    });
-}
-
+ function scrollBoxLeft(){
+    var leftPos = $('#scroll-inner').scrollLeft();
+    $("#scroll-inner").animate({scrollLeft: leftPos - 500}, 200);
+ 
+ }
 

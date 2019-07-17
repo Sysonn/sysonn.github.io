@@ -11,6 +11,11 @@ $(document).ready(function(){
          $("#pop-overlay").velocity("transition.fadeIn", {duration: 500, delay: 0 });
          }
       }, 500);
+      
+
+      
+
+
 
  });
 
@@ -26,3 +31,5 @@ $(document).ready(function(){
    $("#pop-overlay").velocity("transition.fadeOut", {duration: 500, delay: 0 });
 
  }
+
+
