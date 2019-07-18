@@ -1,0 +1,406 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <title>ZigZag</title>
+</head>
+
+<div id="errors" style="
+background: #c00;
+color: #fff;
+display: none;
+margin: -20px -20px 20px;
+padding: 20px;
+white-space: pre-wrap;
+"></div>
+<div id="root"></div>
+<script>
+
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-transition-group/4.0.0/react-transition-group.js"></script>
+<script type="text/babel">
+
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+const messagesData = [
+    {
+        id: 1,
+        text: "Yo.",
+        userbool: true
+    },
+    {
+        id: 2,
+        text: "What's up.",
+        userbool: false
+    },
+    {
+        id: 3,
+        text: "Nice.",
+        userbool: false
+    },
+    {
+        id: 4,
+        text: "I'm enjoying this!",
+        userbool: true
+    },
+    {
+        id: 5,
+        text: "Same.",
+        userbool: false
+    },
+    {
+        id: 6,
+        text: "I love ZigZag!",
+        userbool: false
+    },
+    
+    
+]
+
+
+// class ToDoItem extends React.Component{
+
+//   constructor(props){
+//     super (props);
+//   }
+
+//   render(props){
+//         return (
+//             <div className="todo-item">
+//                 <p>{props.item.text}</p>
+//             </div>
+//         )
+    
+//   }
+// }
+
+
+class VideoContent extends React.Component {
+
+  constructor(props){
+    super (props);
+    this.state = {
+            messagesState: messagesData,
+            sendValue: ''
+        }
+    this.handleVideo = this.handleVideo.bind(this);
+    this.handleSend = this.handleSend.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  getInitialState(){
+    return { videoSrc: null }
+  }
+  componentDidMount(){
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia({video: true}, this.handleVideo, this.videoError);
+        console.log('test1');
+        
+    }
+  }
+  handleVideo(stream) {
+    // Update the state, triggering the component to re-render with the correct stream
+    //this.setState({ videoSrc: window.URL.createObjectURL(stream) });
+    var video = document.querySelector("#videoElement2");
+    video.srcObject = stream;
+    var video = document.querySelector("#videoElement");
+    video.srcObject = stream;
+    
+  }
+  videoError(){
+
+  }
+
+
+
+ handleChange(e) {
+
+   this.setState({sendValue: e.target.value});
+  }
+
+  handleSend(e){
+
+    
+
+     const newData = {
+      id: 6,
+      text: this.state.sendValue,
+      userbool: true
+    }
+
+    var newArray = this.state.messagesState.slice();    
+    newArray.push(newData);   
+    this.setState({messagesState:newArray})                      // setState()
+    e.preventDefault();
+    e.target.reset();
+  }
+
+  render() {
+
+    console.log(this.state)
+    
+    const messages = this.state.messagesState.map(item => {
+      if(item.userbool){
+        return(
+          <div style={{"width":"100%", "float":"left", "clear":"left"}}>
+            <div 
+            style={{
+            "backgroundColor": "#d80090",
+            "color":"white",
+            "width": "auto",
+            "borderRadius" :"10px",
+            "padding": "10px",
+            "marginTop":"10px",
+            "display":"inline-block",
+            "max-width":"50%"
+
+            }}
+
+            key={item.id} item={item}
+            > 
+
+            {item.text} 
+              
+            </div>
+          </div>
+       
+        )
+      }else{
+        return(
+       <div style={{}}>
+            <div 
+            style={{
+            "backgroundColor": "grey",
+            "color":"white",
+            "width": "auto",
+            "borderRadius" :"10px",
+            "padding": "10px",
+            "marginTop":"10px",
+            "display":"inline-block",
+            "float":"right",
+            "clear":"right",
+            "max-width":"50%"
+
+            }}
+
+            key={item.id} item={item}
+            > 
+
+            {item.text} 
+              
+            </div>
+          </div>
+         
+        )
+      }
+    }
+    )
+
+    //console.log(messages)
+
+    return (
+      <div>
+          <div style = {{ 
+            //user video parent
+            "backgroundColor" : "white", 
+            "height":"400px", 
+            "width":"380px", 
+            "borderRadius" : "20px",
+            "boxShadow" : "0 8px 30px 0 rgba(0, 0, 0, 0.4)",
+            "marginLeft" : "-120px",
+            "marginTop" : "80px"
+            }}>
+              <div style={{
+                  "height":"80%", 
+                  "width":"95%",
+                  "overflow":"hidden",
+                  "borderRadius" : "20px",
+                  "textAlign":"center"   
+              }}> 
+                <video
+                  style={{
+                  "marginTop":"20px",
+                  "height":"350px", 
+                  //"width":"350px", 
+                  "borderRadius" : "20px",
+                  "marginLeft":"20px",
+                  "borderRadius" : "20px",
+                 
+                  }}
+
+                   autoPlay='true' id='videoElement2' 
+                   />
+                
+
+              </div>
+
+              <div style={{"margin":"0, auto", "textAlign":"center", "color":"#5d5d5d"}}>
+                  <h1>@username</h1>
+              </div>
+            
+            </div>
+
+            <div style = {{ 
+              //account video parent
+              "backgroundColor" : "white", 
+              "height":"250px", 
+              "width":"220px", 
+              "borderRadius" : "20px", 
+              "marginTop":"-340px", 
+              "marginLeft":"280px",
+              "boxShadow" : "0 8px 30px 0 rgba(0, 0, 0, 0.4)"  
+              }}>
+                <div style={{
+                  "height":"80%", 
+                  "width":"95%",
+                  "overflow":"hidden",
+                  "borderRadius" : "20px",
+                  "textAlign":"center", 
+                }}>
+                    <video
+                    style={{
+                    "marginTop":"10px",
+                    "height":"200px", 
+                    //"width":"200px", 
+                    "marginLeft":"10px",
+                    "borderRadius" : "20px",
+                    }}
+
+                    autoPlay='true' id='videoElement' 
+                    />
+                </div>
+            
+                <div style={{"margin":"0, auto", "textAlign":"center"}}>
+                  <h1 style={{"fontSize":"20px", "color":"#5d5d5d"}}>@me</h1>
+              </div>
+
+            </div> 
+            
+            <div style = {{ 
+              //chat parent
+            "backgroundColor" : "white", 
+            "height":"90%", 
+            "width":"30%", 
+            "borderRadius" : "20px",
+            "boxShadow" : "0 8px 30px 0 rgba(0, 0, 0, 0.4)",
+            "position" : "absolute",
+            "right": "10",
+            "marginTop" : "-400px",
+            "padding" : "15px",
+            
+            }}>
+              <div style={{
+                "fontSize" : "20px",
+                "marginBottom":"5px",
+                "color":"#5d5d5d"
+              }}>
+                @username
+                <div style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px"}}>></div>
+              </div>
+
+              <div style={{
+                //chat box
+                  "overflow-y": "scroll",
+                  "height":"85%",
+                  "width":"100%",
+                  //"backgroundColor":"grey",
+                  "marginBottom":"20px"
+              }}>
+              
+                  <div className="todo-list"
+                  style={{
+                    "paddingLeft":"20px",
+                    "paddingRight":"20px",
+                    "paddingTop":"20px",
+                    
+                  }}>
+                    {messages}
+                  </div>
+
+              </div>
+
+              <div>
+                <form onSubmit={this.handleSend} onChange={this.handleChange}>
+                  <input 
+                  style={{
+                    "border":"none",
+                    "outline":"none",
+                    "width":"100%",
+                    "fontSize":"18px",
+                    "height":"20px",
+                    "color":"#5d5d5d",
+                    "margin-top":"10px"
+                  }}
+                  />
+                 
+                  <input style={{"float":"right", "display":"none" }} type="submit" Value="Send" />
+                <hr />
+                </form>
+              </div>
+            
+            </div>
+
+      </div>
+  
+    );
+  }
+}
+
+
+
+
+class App extends React.Component {
+
+  render() {
+
+   
+
+    return (
+      <div className="game" style = {{ 
+        //BG
+        "margin-top" : "-20px",
+        "marginLeft":"-20px",
+        "backgroundColor" : "purple",
+        "background" : "linear-gradient(45deg, #7daeef, #ee2a7b)", 
+        "height":"100%", 
+        "width":"100%", 
+        "paddingTop": "20px",
+        "position" : "absolute"
+        }}>
+
+        <img src="img/logo.png" 
+        style={{
+        "marginLeft":"20px",
+        "height":"50px"
+        }}/>
+
+        <div className="game-board">
+          <VideoContent />
+        </div>
+
+        
+           
+
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+
+      </div>
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+
+</script>
