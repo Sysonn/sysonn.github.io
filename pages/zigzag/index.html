@@ -95,6 +95,7 @@ class VideoContent extends React.Component {
   getInitialState(){
     return { videoSrc: null }
   }
+  
   componentDidMount(){
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
     if (navigator.getUserMedia) {
@@ -306,10 +307,11 @@ class VideoContent extends React.Component {
               <div style={{
                 //chat box
                   "overflow-y": "scroll",
-                  "height":"85%",
+                  "height":"90%",
                   "width":"100%",
-                  //"backgroundColor":"grey",
-                  "marginBottom":"20px"
+                  //"backgroundColor":"#f4f4f4",
+                  // "marginBottom":"20px",
+                  "borderRadius":"20px",
               }}>
               
                   <div className="todo-list"
@@ -324,7 +326,7 @@ class VideoContent extends React.Component {
 
               </div>
 
-              <div>
+              <div style={{"bottom":"0px", "position":"absolute", "width":"90%",}}>
                 <form onSubmit={this.handleSend} onChange={this.handleChange}>
                   <input 
                   style={{
@@ -334,7 +336,9 @@ class VideoContent extends React.Component {
                     "fontSize":"18px",
                     "height":"20px",
                     "color":"#5d5d5d",
-                    "margin-top":"10px"
+                    //"margin-top":"10px",
+                    "bottom": "0",
+                    //"position":"absolute"
                   }}
                   />
                  
