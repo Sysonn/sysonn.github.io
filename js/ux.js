@@ -1,9 +1,23 @@
 $( document ).ready(function() {
+
+  
       
     //$('body,html').animate({scrollTop: 350}, 800);
     $('.basic-block').velocity("transition.fadeIn", {stagger: 150, drag: true, duration: 1000});
-                
-    
+   
+    $("#pop-overlay").css("display","block");
+
+    setTimeout(function(){
+      $("#pop").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+      }, 100);
+
+    setTimeout(function(){
+      $("#pop-overlay").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+
+      }, 1000);
+
+      $("#pop-overlay").css("display","none");
+
     });
 
     function goBack(){

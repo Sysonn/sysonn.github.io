@@ -21,12 +21,19 @@ var ScrollClick = function(){
 
 function goNext(){
 
-    $("#root").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+
+    //$("#pop-overlay").css("display","block");
+    $("#pop-overlay").velocity("transition.fadeIn", {duration: 500, delay: 0 });
+
     setTimeout(function(){
-    $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
-    $('#root').load('./ux.html');
-    //window.location.href = './ux.html';
+     $("#root").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+    }, 500);
+
+    setTimeout(function(){
+      $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
+      $('#root').load('./ux.html');
     }, 500); 
+
     //window.history.pushState("Details", "Title", "/amazon-redesign/page2/");
 
  };
