@@ -1,16 +1,10 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZigZag</title>
 </head>
 
-<div id="errors" style="
-background: #c00;
-color: #fff;
-display: none;
-margin: -20px -20px 20px;
-padding: 20px;
-white-space: pre-wrap;
-"></div>
+<div id="errors"></div>
 <div id="root"></div>
 <script>
 
@@ -22,62 +16,10 @@ white-space: pre-wrap;
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-transition-group/4.0.0/react-transition-group.js"></script>
+<script src="data/data.js"></script>
 <script type="text/babel">
 
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-const messagesData = [
-    {
-        id: 1,
-        text: "Yo.",
-        userbool: true
-    },
-    {
-        id: 2,
-        text: "What's up.",
-        userbool: false
-    },
-    {
-        id: 3,
-        text: "Nice.",
-        userbool: false
-    },
-    {
-        id: 4,
-        text: "I'm enjoying this!",
-        userbool: true
-    },
-    {
-        id: 5,
-        text: "Same.",
-        userbool: false
-    },
-    {
-        id: 6,
-        text: "I love ZigZag!",
-        userbool: false
-    },
-    
-    
-]
-
-
-// class ToDoItem extends React.Component{
-
-//   constructor(props){
-//     super (props);
-//   }
-
-//   render(props){
-//         return (
-//             <div className="todo-item">
-//                 <p>{props.item.text}</p>
-//             </div>
-//         )
-    
-//   }
-// }
-
 
 class VideoContent extends React.Component {
 
@@ -103,9 +45,26 @@ class VideoContent extends React.Component {
         console.log('test1');
         
     }
+
+    var objDiv = document.querySelector("#chatBox");
+    objDiv.scrollTop = objDiv.scrollHeight;
+
+    
   }
+
+  componentWillUpdate(){
+      ///
+    }
+
+  componentDidUpdate(){
+    //* Scroll to bottom of chatBox
+    var objDiv = document.querySelector("#chatBox");
+    objDiv.scrollTop = objDiv.scrollHeight;
+
+  }
+
   handleVideo(stream) {
-    // Update the state, triggering the component to re-render with the correct stream
+    //* Update the state, triggering the component to re-render with the correct stream
     //this.setState({ videoSrc: window.URL.createObjectURL(stream) });
     var video = document.querySelector("#videoElement2");
     video.srcObject = stream;
@@ -127,21 +86,41 @@ class VideoContent extends React.Component {
   handleSend(e){
 
     
+    var date = new Date();
+    var datestring = date.toDateString();
+    var time = date.toLocaleTimeString();
+    //this.timestamp = datestring + "  " + time
+      this.timestamp = time;
+ 
 
      const newData = {
       id: 6,
       text: this.state.sendValue,
-      userbool: true
+      userbool: true,
+      timestamp: this.timestamp,
     }
 
     var newArray = this.state.messagesState.slice();    
     newArray.push(newData);   
-    this.setState({messagesState:newArray})                      // setState()
+    this.setState({messagesState:newArray})  // setState()
+
     e.preventDefault();
     e.target.reset();
+
+    
+  }
+
+  handleHide(){
+    // console.log("hideClicked");
+    // var el = document.querySelector("#childParent");
+    // //css(el, { background: 'green', display: 'none', 'border-radius': '5px' });
+    // document.getElementById("childParent").style.display = "none"
+    
   }
 
   render() {
+
+    
 
     console.log(this.state)
     
@@ -156,7 +135,7 @@ class VideoContent extends React.Component {
             "width": "auto",
             "borderRadius" :"10px",
             "padding": "10px",
-            "marginTop":"10px",
+            "marginTop":"15px",
             "display":"inline-block",
             "max-width":"50%"
 
@@ -165,9 +144,13 @@ class VideoContent extends React.Component {
             key={item.id} item={item}
             > 
 
-            {item.text} 
-              
+            {item.text}
             </div>
+
+            <div id="timestamp2" style={{"fontSize":"8px", "marginTop":"8px", "color":"#c7c7c7"}}>
+            {item.timestamp} 
+            </div>
+            
           </div>
        
         )
@@ -181,7 +164,7 @@ class VideoContent extends React.Component {
             "width": "auto",
             "borderRadius" :"10px",
             "padding": "10px",
-            "marginTop":"10px",
+            "marginTop":"15px",
             "display":"inline-block",
             "float":"right",
             "clear":"right",
@@ -193,8 +176,13 @@ class VideoContent extends React.Component {
             > 
 
             {item.text} 
-              
+
             </div>
+            
+            <div id="timestamp2" style={{"fontSize":"8px", "marginTop":"8px", "color":"#c7c7c7", "float":"right", "clear":"right"}}>
+            {item.timestamp} 
+            </div>
+
           </div>
          
         )
@@ -206,16 +194,8 @@ class VideoContent extends React.Component {
 
     return (
       <div>
-          <div style = {{ 
-            //user video parent
-            "backgroundColor" : "white", 
-            "height":"400px", 
-            "width":"380px", 
-            "borderRadius" : "20px",
-            "boxShadow" : "0 8px 30px 0 rgba(0, 0, 0, 0.4)",
-            "marginLeft" : "-120px",
-            "marginTop" : "80px"
-            }}>
+          <div id="userVideoParent">
+
               <div style={{
                   "height":"80%", 
                   "width":"95%",
@@ -226,7 +206,7 @@ class VideoContent extends React.Component {
                 <video
                   style={{
                   "marginTop":"20px",
-                  "height":"350px", 
+                  "height":"250px", 
                   //"width":"350px", 
                   "borderRadius" : "20px",
                   "marginLeft":"20px",
@@ -282,37 +262,17 @@ class VideoContent extends React.Component {
 
             </div> 
             
-            <div style = {{ 
-              //chat parent
-            "backgroundColor" : "white", 
-            "height":"90%", 
-            "width":"30%", 
-            "borderRadius" : "20px",
-            "boxShadow" : "0 8px 30px 0 rgba(0, 0, 0, 0.4)",
-            "position" : "absolute",
-            "right": "10",
-            "marginTop" : "-400px",
-            "padding" : "15px",
-            
-            }}>
+            <div id="chatParent" >
               <div style={{
                 "fontSize" : "20px",
                 "marginBottom":"5px",
                 "color":"#5d5d5d"
               }}>
                 @username
-                <div style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px"}}>></div>
+                <div id="hideButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px",}} onClick={this.handleHide}>></div>
               </div>
 
-              <div style={{
-                //chat box
-                  "overflow-y": "scroll",
-                  "height":"90%",
-                  "width":"100%",
-                  //"backgroundColor":"#f4f4f4",
-                  // "marginBottom":"20px",
-                  "borderRadius":"20px",
-              }}>
+              <div id="chatBox">
               
                   <div className="todo-list"
                   style={{
@@ -336,10 +296,11 @@ class VideoContent extends React.Component {
                     "fontSize":"18px",
                     "height":"20px",
                     "color":"#5d5d5d",
-                    //"margin-top":"10px",
                     "bottom": "0",
                     //"position":"absolute"
                   }}
+                  placeholder="type here."
+                  
                   />
                  
                   <input style={{"float":"right", "display":"none" }} type="submit" Value="Send" />
@@ -365,35 +326,14 @@ class App extends React.Component {
    
 
     return (
-      <div className="game" style = {{ 
-        //BG
-        "margin-top" : "-20px",
-        "marginLeft":"-20px",
-        "backgroundColor" : "purple",
-        "background" : "linear-gradient(45deg, #7daeef, #ee2a7b)", 
-        "height":"100%", 
-        "width":"100%", 
-        "paddingTop": "20px",
-        "position" : "absolute"
-        }}>
+      <div className="game" >
 
-        <img src="img/logo.png" 
-        style={{
-        "marginLeft":"20px",
-        "height":"50px"
-        }}/>
+        <img id="logo" src="img/logo.png" />
 
         <div className="game-board">
           <VideoContent />
         </div>
 
-        
-           
-
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
 
       </div>
     );
