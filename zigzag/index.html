@@ -1,0 +1,350 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZigZag</title>
+</head>
+
+<div id="errors"></div>
+<div id="root"></div>
+<script>
+
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-transition-group/4.0.0/react-transition-group.js"></script>
+<script src="data/data.js"></script>
+<script type="text/babel">
+
+// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+class VideoContent extends React.Component {
+
+  constructor(props){
+    super (props);
+    this.state = {
+            messagesState: messagesData,
+            sendValue: ''
+        }
+    this.handleVideo = this.handleVideo.bind(this);
+    this.handleSend = this.handleSend.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  getInitialState(){
+    return { videoSrc: null }
+  }
+  
+  componentDidMount(){
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia({video: true}, this.handleVideo, this.videoError);
+        console.log('test1');
+        
+    }
+
+    var objDiv = document.querySelector("#chatBox");
+    objDiv.scrollTop = objDiv.scrollHeight;
+
+    
+  }
+
+  componentWillUpdate(){
+      ///
+    }
+
+  componentDidUpdate(){
+    //* Scroll to bottom of chatBox
+    var objDiv = document.querySelector("#chatBox");
+    objDiv.scrollTop = objDiv.scrollHeight;
+
+  }
+
+  handleVideo(stream) {
+    //* Update the state, triggering the component to re-render with the correct stream
+    //this.setState({ videoSrc: window.URL.createObjectURL(stream) });
+    var video = document.querySelector("#videoElement2");
+    video.srcObject = stream;
+    var video = document.querySelector("#videoElement");
+    video.srcObject = stream;
+    
+  }
+  videoError(){
+
+  }
+
+
+
+ handleChange(e) {
+
+   this.setState({sendValue: e.target.value});
+  }
+
+  handleSend(e){
+
+    
+    var date = new Date();
+    var datestring = date.toDateString();
+    var time = date.toLocaleTimeString();
+    //this.timestamp = datestring + "  " + time
+      this.timestamp = time;
+ 
+
+     const newData = {
+      id: 6,
+      text: this.state.sendValue,
+      userbool: true,
+      timestamp: this.timestamp,
+    }
+
+    var newArray = this.state.messagesState.slice();    
+    newArray.push(newData);   
+    this.setState({messagesState:newArray})  // setState()
+
+    e.preventDefault();
+    e.target.reset();
+
+    
+  }
+
+  handleHide(){
+    // console.log("hideClicked");
+    // var el = document.querySelector("#childParent");
+    // //css(el, { background: 'green', display: 'none', 'border-radius': '5px' });
+    // document.getElementById("childParent").style.display = "none"
+    
+  }
+
+  render() {
+
+    
+
+    console.log(this.state)
+    
+    const messages = this.state.messagesState.map(item => {
+      if(item.userbool){
+        return(
+          <div style={{"width":"100%", "float":"left", "clear":"left"}}>
+            <div 
+            style={{
+            "backgroundColor": "#d80090",
+            "color":"white",
+            "width": "auto",
+            "borderRadius" :"10px",
+            "padding": "10px",
+            "marginTop":"15px",
+            "display":"inline-block",
+            "max-width":"50%"
+
+            }}
+
+            key={item.id} item={item}
+            > 
+
+            {item.text}
+            </div>
+
+            <div id="timestamp2" style={{"fontSize":"8px", "marginTop":"8px", "color":"#c7c7c7"}}>
+            {item.timestamp} 
+            </div>
+            
+          </div>
+       
+        )
+      }else{
+        return(
+       <div style={{}}>
+            <div 
+            style={{
+            "backgroundColor": "grey",
+            "color":"white",
+            "width": "auto",
+            "borderRadius" :"10px",
+            "padding": "10px",
+            "marginTop":"15px",
+            "display":"inline-block",
+            "float":"right",
+            "clear":"right",
+            "max-width":"50%"
+
+            }}
+
+            key={item.id} item={item}
+            > 
+
+            {item.text} 
+
+            </div>
+            
+            <div id="timestamp2" style={{"fontSize":"8px", "marginTop":"8px", "color":"#c7c7c7", "float":"right", "clear":"right"}}>
+            {item.timestamp} 
+            </div>
+
+          </div>
+         
+        )
+      }
+    }
+    )
+
+    //console.log(messages)
+
+    return (
+      <div>
+          <div id="userVideoParent">
+
+              <div style={{
+                  "height":"80%", 
+                  "width":"95%",
+                  "overflow":"hidden",
+                  "borderRadius" : "20px",
+                  "textAlign":"center"   
+              }}> 
+                <video
+                  style={{
+                  "marginTop":"20px",
+                  "height":"250px", 
+                  //"width":"350px", 
+                  "borderRadius" : "20px",
+                  "marginLeft":"20px",
+                  "borderRadius" : "20px",
+                 
+                  }}
+
+                   autoPlay='true' id='videoElement2' 
+                   />
+                
+
+              </div>
+
+              <div style={{"margin":"0, auto", "textAlign":"center", "color":"#5d5d5d"}}>
+                  <h1>@username</h1>
+              </div>
+            
+            </div>
+
+            <div style = {{ 
+              //account video parent
+              "backgroundColor" : "white", 
+              "height":"250px", 
+              "width":"220px", 
+              "borderRadius" : "20px", 
+              "marginTop":"-340px", 
+              "marginLeft":"280px",
+              "boxShadow" : "0 8px 30px 0 rgba(0, 0, 0, 0.4)"  
+              }}>
+                <div style={{
+                  "height":"80%", 
+                  "width":"95%",
+                  "overflow":"hidden",
+                  "borderRadius" : "20px",
+                  "textAlign":"center", 
+                }}>
+                    <video
+                    style={{
+                    "marginTop":"10px",
+                    "height":"200px", 
+                    //"width":"200px", 
+                    "marginLeft":"10px",
+                    "borderRadius" : "20px",
+                    }}
+
+                    autoPlay='true' id='videoElement' 
+                    />
+                </div>
+            
+                <div style={{"margin":"0, auto", "textAlign":"center"}}>
+                  <h1 style={{"fontSize":"20px", "color":"#5d5d5d"}}>@me</h1>
+              </div>
+
+            </div> 
+            
+            <div id="chatParent" >
+              <div style={{
+                "fontSize" : "20px",
+                "marginBottom":"5px",
+                "color":"#5d5d5d"
+              }}>
+                @username
+                <div id="hideButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px",}} onClick={this.handleHide}>></div>
+              </div>
+
+              <div id="chatBox">
+              
+                  <div className="todo-list"
+                  style={{
+                    "paddingLeft":"20px",
+                    "paddingRight":"20px",
+                    "paddingTop":"20px",
+                    
+                  }}>
+                    {messages}
+                  </div>
+
+              </div>
+
+              <div style={{"bottom":"0px", "position":"absolute", "width":"90%",}}>
+                <form onSubmit={this.handleSend} onChange={this.handleChange}>
+                  <input 
+                  style={{
+                    "border":"none",
+                    "outline":"none",
+                    "width":"100%",
+                    "fontSize":"18px",
+                    "height":"20px",
+                    "color":"#5d5d5d",
+                    "bottom": "0",
+                    //"position":"absolute"
+                  }}
+                  placeholder="type here."
+                  
+                  />
+                 
+                  <input style={{"float":"right", "display":"none" }} type="submit" Value="Send" />
+                <hr />
+                </form>
+              </div>
+            
+            </div>
+
+      </div>
+  
+    );
+  }
+}
+
+
+
+
+class App extends React.Component {
+
+  render() {
+
+   
+
+    return (
+      <div className="game" >
+
+        <img id="logo" src="img/logo.png" />
+
+        <div className="game-board">
+          <VideoContent />
+        </div>
+
+
+      </div>
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+
+</script>
