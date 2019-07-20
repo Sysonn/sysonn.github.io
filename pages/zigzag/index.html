@@ -22,7 +22,7 @@
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class VideoContent extends React.Component {
-
+  
   constructor(props){
     super (props);
     this.state = {
@@ -42,7 +42,7 @@ class VideoContent extends React.Component {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
     if (navigator.getUserMedia) {
         navigator.getUserMedia({video: true}, this.handleVideo, this.videoError);
-        console.log('test1');
+        console.log('Video Mounted');
         
     }
 
@@ -79,13 +79,10 @@ class VideoContent extends React.Component {
 
 
  handleChange(e) {
-
    this.setState({sendValue: e.target.value});
   }
 
   handleSend(e){
-
-    
     var date = new Date();
     var datestring = date.toDateString();
     var time = date.toLocaleTimeString();
@@ -111,12 +108,28 @@ class VideoContent extends React.Component {
   }
 
   handleHide(){
-    // console.log("hideClicked");
-    // var el = document.querySelector("#childParent");
-    // //css(el, { background: 'green', display: 'none', 'border-radius': '5px' });
-    // document.getElementById("childParent").style.display = "none"
-    
+      var friendsParent = document.querySelector("#friendsParent");
+      var chatParent = document.querySelector("#chatParent");
+      var closeFriendsButton = document.querySelector("#closeFriendsButton");
+      var openFriendsButton = document.querySelector("#openFriendsButton");
+
+      if (friendsParent.style.display === "none") {
+        friendsParent.style.display = "block";
+        openFriendsButton.style.display = "none";
+        closeFriendsButton.style.display = "block";
+        chatParent.style.right = "200px";
+      } else {
+        friendsParent.style.display = "none";
+        chatParent.style.right = "10px";
+        openFriendsButton.style.display = "block";
+        closeFriendsButton.style.display = "none";
+       
+      }
+  
   }
+
+
+
 
   render() {
 
@@ -138,7 +151,6 @@ class VideoContent extends React.Component {
             "marginTop":"15px",
             "display":"inline-block",
             "max-width":"50%"
-
             }}
 
             key={item.id} item={item}
@@ -206,7 +218,7 @@ class VideoContent extends React.Component {
                 <video
                   style={{
                   "marginTop":"20px",
-                  "height":"250px", 
+                  "height":"350px", 
                   //"width":"350px", 
                   "borderRadius" : "20px",
                   "marginLeft":"20px",
@@ -261,6 +273,16 @@ class VideoContent extends React.Component {
               </div>
 
             </div> 
+
+            <div id="friendsParent" >
+              <div id="friendsTitle">Friends</div>
+              <div id="friendsBox">
+                <div id="friendElement"> <div id="friendPictureBox" style={{"borderColor":"#d80090"}}> <img id="userImage" src="img/user.png" /></div> <div id="friendName">@username</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@john_con</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@suzy_qt</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@dude100</div></div>  
+              </div>
+            </div>
             
             <div id="chatParent" >
               <div style={{
@@ -269,7 +291,8 @@ class VideoContent extends React.Component {
                 "color":"#5d5d5d"
               }}>
                 @username
-                <div id="hideButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px",}} onClick={this.handleHide}>></div>
+                <div id="closeFriendsButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px", "cursor":"pointer"}} onClick={this.handleHide}>&gt;</div>
+                <div id="openFriendsButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px", "cursor":"pointer", "display":"none"}} onClick={this.handleHide}>&lt;</div>
               </div>
 
               <div id="chatBox">
@@ -321,13 +344,28 @@ class VideoContent extends React.Component {
 
 class App extends React.Component {
 
+  popUpHide(){
+    document.querySelector("#popUp").style.display = "none";
+    console.log('popUp Hidden');
+  }
+
   render() {
 
    
 
     return (
       <div className="game" >
-
+        <div id ="popUp">
+          <img id="logo" src="img/logo.png" />
+          <br /> <br />
+          WARNING: This project is not yet mobile friendly. 
+          <br /> <br />
+          For the best experience, please view on the desktop version of the site.
+          <br /><br />
+          Thank you.
+          <br /> <br /> <br />
+          <div style={{"backgroundColor":"white", "color":"#d80090","width":"80%","margin":"0 auto","height":"50px", "lineHeight":"50px","border-radius":"10px","cursor":"pointer"}} onClick={this.popUpHide} >Dismiss</div>
+          </div>
         <img id="logo" src="img/logo.png" />
 
         <div className="game-board">
