@@ -1,0 +1,102 @@
+ <div>
+          <div id="userVideoParent">
+
+              <div id="videoWrapper2" > 
+                <video autoPlay='true' id='videoElement2' />
+              </div>
+
+              <div style={{"margin":"0, auto", "textAlign":"center", "color":"#5d5d5d"}}>
+                  <h1>@username</h1>
+              </div>
+            
+            </div>
+
+            <div class="VoteBox">
+
+              <div class="upVote" onClick={this.handleUpVote}><img class="upVoteImg" src="img/upVote.png" /> </div>
+
+              <div id="voteNum">234</div>
+
+              <div class="downVote" onClick={this.handleDownVote}> <img class="downVoteImg" src="img/downVote.png" /> </div>
+
+            </div>
+          
+
+            <div id="accountVideoParent">
+
+                <div id="videoWrapper">
+                    <video autoPlay='true' id='videoElement' />
+                </div>
+            
+                <div style={{"margin":"0, auto", "textAlign":"center"}}>
+                  <h1 style={{"fontSize":"20px", "color":"#5d5d5d"}}>@me</h1>
+              </div>
+
+            </div> 
+
+            <div class="VoteBoxUser">
+              <div id="voteNumUser">1,134</div>
+            </div>
+
+            <div id="friendsParent" >
+              <div id="friendsTitle">Friends</div>
+              <div id="friendsBox">
+                <div id="friendElement"> <div id="friendPictureBox" style={{"borderColor":"#d80090"}}> <img id="userImage" src="img/user.png" /></div> <div id="friendName">@username</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@john_con</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@suzy_qt</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@dude100</div></div>  
+              </div>
+            </div>
+            
+            <div id="chatParent" >
+              <div style={{
+                "fontSize" : "20px",
+                "marginBottom":"5px",
+                "color":"#5d5d5d"
+              }}>
+                @username
+                <div id="closeFriendsButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px", "cursor":"pointer"}} onClick={this.handleHide}>&gt;</div>
+                <div id="openFriendsButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px", "cursor":"pointer", "display":"none"}} onClick={this.handleHide}>&lt;</div>
+              </div>
+
+            
+
+              <div id="chatBox">
+              
+                  <div className="todo-list"
+                  style={{
+                    "paddingLeft":"20px",
+                    "paddingRight":"20px",
+                    "paddingTop":"20px",
+                    
+                  }}>
+                    {messages}
+                  </div>
+
+              </div>
+
+              <div style={{"bottom":"0px", "position":"absolute", "width":"90%",}}>
+                <form onSubmit={this.handleSend} onChange={this.handleChange}>
+                  <input 
+                  style={{
+                    "border":"none",
+                    "outline":"none",
+                    "width":"100%",
+                    "fontSize":"18px",
+                    "height":"20px",
+                    "color":"#5d5d5d",
+                    "bottom": "0",
+                    //"position":"absolute"
+                  }}
+                  placeholder="type here."
+                  
+                  />
+                 
+                  <input style={{"float":"right", "display":"none" }} type="submit" Value="Send" />
+                <hr />
+                </form>
+              </div>
+            
+            </div>
+
+      </div>
