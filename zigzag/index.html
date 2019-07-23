@@ -1,6 +1,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
     <title>ZigZag</title>
 </head>
 
@@ -22,7 +23,7 @@
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class VideoContent extends React.Component {
-
+  
   constructor(props){
     super (props);
     this.state = {
@@ -42,7 +43,7 @@ class VideoContent extends React.Component {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
     if (navigator.getUserMedia) {
         navigator.getUserMedia({video: true}, this.handleVideo, this.videoError);
-        console.log('test1');
+        console.log('Video Mounted');
         
     }
 
@@ -79,13 +80,10 @@ class VideoContent extends React.Component {
 
 
  handleChange(e) {
-
    this.setState({sendValue: e.target.value});
   }
 
   handleSend(e){
-
-    
     var date = new Date();
     var datestring = date.toDateString();
     var time = date.toLocaleTimeString();
@@ -111,12 +109,49 @@ class VideoContent extends React.Component {
   }
 
   handleHide(){
-    // console.log("hideClicked");
-    // var el = document.querySelector("#childParent");
-    // //css(el, { background: 'green', display: 'none', 'border-radius': '5px' });
-    // document.getElementById("childParent").style.display = "none"
+      var friendsParent = document.querySelector("#friendsParent");
+      var chatParent = document.querySelector("#chatParent");
+      var closeFriendsButton = document.querySelector("#closeFriendsButton");
+      var openFriendsButton = document.querySelector("#openFriendsButton");
+      var closeFriendsImg = document.querySelector(".closeButton");
+
+      if (friendsParent.style.display === "none") {
+
+        friendsParent.style.display = "block";
+        openFriendsButton.style.display = "none";
+        chatParent.style.right = "200px";
+        closeFriendsButton.style.display = "block";
+    
+
+      } else {
+        friendsParent.style.display = "none";
+        chatParent.style.right = "5px";
+        openFriendsButton.style.display = "block";
+        closeFriendsButton.style.display = "none";
+       
+      }
+  
+  }
+
+  handleUpVote(){
+  
+    var voteBoxValue = document.querySelector("#voteNum").innerHTML;
+    var voteBoxNum = parseInt(voteBoxValue);
+    document.querySelector("#voteNum").innerHTML = voteBoxNum + 1;
     
   }
+
+  handleDownVote(){
+  
+  var voteBoxValue = document.querySelector("#voteNum").innerHTML;
+  var voteBoxNum = parseInt(voteBoxValue);
+  document.querySelector("#voteNum").innerHTML = voteBoxNum - 1;
+  
+}
+
+
+
+
 
   render() {
 
@@ -138,7 +173,6 @@ class VideoContent extends React.Component {
             "marginTop":"15px",
             "display":"inline-block",
             "max-width":"50%"
-
             }}
 
             key={item.id} item={item}
@@ -193,31 +227,11 @@ class VideoContent extends React.Component {
     //console.log(messages)
 
     return (
-      <div>
+      <div id="videoBoard">
           <div id="userVideoParent">
 
-              <div style={{
-                  "height":"80%", 
-                  "width":"95%",
-                  "overflow":"hidden",
-                  "borderRadius" : "20px",
-                  "textAlign":"center"   
-              }}> 
-                <video
-                  style={{
-                  "marginTop":"20px",
-                  "height":"250px", 
-                  //"width":"350px", 
-                  "borderRadius" : "20px",
-                  "marginLeft":"20px",
-                  "borderRadius" : "20px",
-                 
-                  }}
-
-                   autoPlay='true' id='videoElement2' 
-                   />
-                
-
+              <div id="videoWrapper2" > 
+                <video autoPlay='true' id='videoElement2' />
               </div>
 
               <div style={{"margin":"0, auto", "textAlign":"center", "color":"#5d5d5d"}}>
@@ -226,34 +240,21 @@ class VideoContent extends React.Component {
             
             </div>
 
-            <div style = {{ 
-              //account video parent
-              "backgroundColor" : "white", 
-              "height":"250px", 
-              "width":"220px", 
-              "borderRadius" : "20px", 
-              "marginTop":"-340px", 
-              "marginLeft":"280px",
-              "boxShadow" : "0 8px 30px 0 rgba(0, 0, 0, 0.4)"  
-              }}>
-                <div style={{
-                  "height":"80%", 
-                  "width":"95%",
-                  "overflow":"hidden",
-                  "borderRadius" : "20px",
-                  "textAlign":"center", 
-                }}>
-                    <video
-                    style={{
-                    "marginTop":"10px",
-                    "height":"200px", 
-                    //"width":"200px", 
-                    "marginLeft":"10px",
-                    "borderRadius" : "20px",
-                    }}
+            <div class="VoteBox">
 
-                    autoPlay='true' id='videoElement' 
-                    />
+              <div class="upVote" onClick={this.handleUpVote}><img class="upVoteImg" src="img/upVote.png" /> </div>
+
+              <div id="voteNum">234</div>
+
+              <div class="downVote" onClick={this.handleDownVote}> <img class="downVoteImg" src="img/downVote.png" /> </div>
+
+            </div>
+          
+
+            <div id="accountVideoParent">
+
+                <div id="videoWrapper">
+                    <video autoPlay='true' id='videoElement' />
                 </div>
             
                 <div style={{"margin":"0, auto", "textAlign":"center"}}>
@@ -261,6 +262,21 @@ class VideoContent extends React.Component {
               </div>
 
             </div> 
+
+            <div class="VoteBoxUser">
+              <div id="voteNumUser">1,134</div>
+            </div>
+
+            <div id="chat_and_friend_Wrapper">
+            <div id="friendsParent" >
+              <div id="friendsTitle">Friends</div>
+              <div id="friendsBox">
+                <div id="friendElement"> <div id="friendPictureBox" style={{"borderColor":"#d80090"}}> <img id="userImage" src="img/user.png" /></div> <div id="friendName">@username</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@john_con</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@suzy_qt</div></div> 
+                <div id="friendElement"> <div id="friendPictureBox"><img id="userImage" src="img/user.png" /></div> <div id="friendName">@dude100</div></div>  
+              </div>
+            </div>
             
             <div id="chatParent" >
               <div style={{
@@ -269,8 +285,11 @@ class VideoContent extends React.Component {
                 "color":"#5d5d5d"
               }}>
                 @username
-                <div id="hideButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px",}} onClick={this.handleHide}>></div>
+                <div id="closeFriendsButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px", "cursor":"pointer"}} onClick={this.handleHide}><img class="closeButton" id="closeButton" src="img/close_hide_button.png" /></div>
+                <div id="openFriendsButton" style={{"position":"absolute", "right":"0","marginTop":"-30px", "marginRight":"20px", "cursor":"pointer", "display":"none"}} onClick={this.handleHide}><img class="hideButton" id="hideButton" src="img/close_hide_button.png" /></div>
               </div>
+
+            
 
               <div id="chatBox">
               
@@ -309,6 +328,7 @@ class VideoContent extends React.Component {
               </div>
             
             </div>
+          </div>
 
       </div>
   
@@ -321,13 +341,30 @@ class VideoContent extends React.Component {
 
 class App extends React.Component {
 
+  popUpHide(){
+    document.querySelector("#popUp").style.display = "none";
+    console.log('popUp Hidden');
+  }
+
   render() {
 
    
 
     return (
       <div className="game" >
-
+        <div id ="popUp">
+          <div id="popUpChild">
+            <img id="logo" src="img/logo.png" />
+            <br /> <br />
+            WARNING: This project is not yet mobile friendly. 
+            <br /> <br />
+            For the best experience, please view the desktop version of the site.
+            <br /><br />
+            Thank you.
+            <br /> <br /> <br />
+            <div style={{"backgroundColor":"white", "color":"#d80090","width":"80%","margin":"0 auto","height":"50px", "lineHeight":"50px","border-radius":"10px","cursor":"pointer"}} onClick={this.popUpHide} >Dismiss</div>
+          </div>
+        </div>
         <img id="logo" src="img/logo.png" />
 
         <div className="game-board">
