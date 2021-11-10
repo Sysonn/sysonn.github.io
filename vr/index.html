@@ -13,14 +13,20 @@
 
       <a-assets>
         <a-asset-item id="speeder" src="models/Speeder2.glb"></a-asset-item>
+        <img id="sky" src="img/sky1.jpg">
+        <img id="dirt" src="img/dirt.jpg">
       </a-assets>
 
+      <a-entity light="type: ambient; color: black"></a-entity>
 
-
+      <a-entity light="type: point; color: #d59eff; intensity: 0.75; distance: 50; decay: 2" position="0 15 -10"></a-entity>
+      <a-entity light="type: point; color: lightblue; intensity: 0.75; distance: 50; decay: 2" position="0 10 10"></a-entity>
+      
       <a-entity movement-controls="speed: 0.15" position="0 .6 0">
 
         <a-entity oculus-touch-controls="hand: left" position="0 .6 0"></a-entity>
         <a-entity oculus-touch-controls="hand: right" position="0 .6 0"></a-entity>
+        <a-entity laser-controls="hand: right" position="0 .6 0"></a-entity>
 
         <a-entity camera look-controls position="0 .6 0">
                   <!-- look-controls
@@ -65,8 +71,8 @@
 
 
 
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="50" height="50" color="#3b445e"></a-plane>
-      <a-sky color="#2b2430"></a-sky>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="50" height="50" src="#dirt" repeat="10 10"></a-plane>
+      <a-sky src="#sky"></a-sky>
 
     </a-scene>
   </body>
