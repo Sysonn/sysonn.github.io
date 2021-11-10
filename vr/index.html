@@ -2,6 +2,8 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- a-frame extras -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -13,13 +15,17 @@
 
       <a-entity oculus-touch-controls="hand: left"></a-entity>
       <a-entity oculus-touch-controls="hand: right"></a-entity>
+      <a-entity laser-controls="hand: right"></a-entity>
 
-      <a-entity position="0 0 1">
-        <a-entity camera position="0 1.6 0"
-                  look-controls
-                  wasd-controls="acceleration: 65;
-                                  easing: 20">
-          <a-cursor></a-cursor>
+      <a-entity movement-controls position="0 0.5 1">
+        <a-entity camera position="0 0.5 1">
+                  <!-- look-controls
+                  wasd-controls="acceleration: 50;
+                                  easing: 40"> -->
+
+          <!-- <a-cursor></a-cursor> -->
+          <!-- Cockpit -->
+          <!-- <a-sphere color="red" position="0 -1.1 0"></a-sphere> -->
         </a-entity>
       </a-entity>
 
