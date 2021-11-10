@@ -13,11 +13,8 @@
       </a-assets>
 
 
-      <a-entity oculus-touch-controls="hand: left"></a-entity>
-      <a-entity oculus-touch-controls="hand: right"></a-entity>
-      <a-entity laser-controls="hand: right"></a-entity>
 
-      <a-entity movement-controls position="0 0.5 1">
+      <a-entity movement-controls="speed: 0.15" position="0 0.5 1">
         <a-entity camera position="0 0.5 1">
                   <!-- look-controls
                   wasd-controls="acceleration: 50;
@@ -26,6 +23,13 @@
           <!-- <a-cursor></a-cursor> -->
           <!-- Cockpit -->
           <!-- <a-sphere color="red" position="0 -1.1 0"></a-sphere> -->
+
+          
+          <a-entity oculus-touch-controls="hand: left"></a-entity>
+          <a-entity oculus-touch-controls="hand: right"></a-entity>
+          <a-entity laser-controls="hand: right"></a-entity>
+
+
         </a-entity>
       </a-entity>
 
