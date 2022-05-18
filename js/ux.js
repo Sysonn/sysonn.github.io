@@ -71,7 +71,19 @@ $( document ).ready(function() {
       setTimeout(function(){
       $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
       $('#root').load('./pages/more-projects/dds.html');
+      // $('#root').load('./pages/more-projects/GlobalDDS');
       }, 500); 
   
    };
+
+   function projectSuiteLoad(){
+
+      $("#root").velocity("transition.fadeOut", {duration: 500, delay: 0 });
+      setTimeout(function(){
+      $("#root").velocity("transition.fadeIn", {duration: 500, delay: 0 });
+      $('#root').load('./pages/more-projects/project-suite.html');
+      }, 500); 
+  
+   };
+    
     
