@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WestRock DDS</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="style.css">
+
+
+  <!-- <script src="scripts/index.js"></script> -->
+    
+
+</head>
+<body>
+        <section>
+                <img src="svgs/1.svg">
+        </section>
+
+        <section>
+                <img src="svgs/2.svg">
+        </section>
+
+        <section>
+                <img src="svgs/3.svg">
+        </section>
+
+        <section>
+                <img src="svgs/4.svg">
+        </section>
+
+        <section>
+               <div id="bm"></div>
+        </section>
+
+        <section>
+                <img src="svgs/6.svg">
+        </section>
+
+         <section>
+                <img src="svgs/7.svg">
+        </section>
+
+         <section>
+                <a href="../mpn.php?fetchid=226552&cust=PG"><img src="svgs/demo.svg"></a>
+        </section>
+
+<script src="scripts/lottie.js"></script>
+<script>
+console.log('lottie test');
+var animation = lottie.loadAnimation({
+        container: document.getElementById('bm'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'svgs/dds/data.json'
+})
+console.log(animation);
+</script>
+</body>
+</html>
