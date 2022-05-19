@@ -466,6 +466,10 @@ a {
             margin-left: -20px; 
         }
 
+        .pg-img{
+           width: 50%; 
+        }
+
         #more-project-img-center{
             width: 100%;
             padding-top: 10px;
