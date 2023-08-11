@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="start.css">
+
+<title>frndship</title>
+</head>
+<body>
+    <div class="logo">
+        <img width="30px" id="logo" src="img/shipLogo.png" alt="Logo">
+        <div id="frndLogo" style="color:white; letter-spacing: -2px; font-size: 30px; display: none;">frndship</div>
+    </div>
+
+    <div class="toolbar" id="toolbar">
+        <button>About</button>
+        <button>Contact</button>
+        <button>Pre-Alpha</button>
+    </div>
+ 
+  <div id="wrapper">
+
+    <div class="section">
+      
+      <video class="video-background" autoplay muted loop>
+        <source id='video-source' src="video/bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="content">
+        <div class="text-content">
+        <p>We're bringing back <span style="color: #FE733B;">social</span> networking.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+        <video class="video-background" autoplay muted loop>
+            <source id='video-source' src="video/vrInteract.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="content">
+            <p>With a <span id="keyword" style="color: #FE733B;">unique</span> way to connect.</p>
+          </div>
+    </div>
+
+    <div class="section">
+        <video class="video-background" autoplay muted loop>
+            <source id='video-source' src="video/planet.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="content">
+            <div class="text-content">
+                <div class="text-content"></div>
+                    <p>From <span style="color: #FE733B;">anywhere</span>, on <span style="color: #FE733B;">any</span> device.</p>
+                </div>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="section">
+        <video class="video-background" autoplay muted loop>
+          <!-- <source id='video-source' src="video/bg.mp4" type="video/mp4"> -->
+          Your browser does not support the video tag.
+        </video>
+        <div class="content-last">
+            <div class="text-content-last">
+
+                <div class="left-content">
+                    <img src="img/loginScreen.png" width="500px" alt="Logo">
+                </div>
+
+                <div class="right-content">
+                    <div>More <span style="color: #FE733B; font-weight: bold;">social</span>
+                    <br>
+                    less <span style="color: #FE733B; font-weight: bold;">media</span>.
+                    </div>
+                    <div class="coming-soon">coming soon.</div>
+                </div>
+
+            </div>
+        </div>
+      </div>
+
+  </div>
+
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const wrapper = document.getElementById('wrapper');
+    const toolbar = document.getElementById('toolbar');
+    const logo = document.getElementById('frndLogo');
+  
+    let currentSectionIndex = 0;
+    let lastScrollTime = 0;
+    let lastY = 0; // Store last touch position for tracking direction
+    const scrollDelay = 800;
+  
+    // Use touch events for mobile devices and wheel events for desktop
+    if ('ontouchstart' in window) {
+      wrapper.addEventListener('touchstart', (event) => {
+        event.preventDefault();
+        lastScrollTime = new Date().getTime();
+      });
+  
+      wrapper.addEventListener('touchmove', (event) => {
+        event.preventDefault();
+        const now = new Date().getTime();
+  
+        if (now - lastScrollTime > scrollDelay) {
+          const deltaY = event.touches[0].clientY - lastY;
+          if (deltaY > 20 && currentSectionIndex < sections.length - 1) {
+            currentSectionIndex++;
+          } else if (deltaY < -20 && currentSectionIndex > 0) {
+            currentSectionIndex--;
+          }
+  
+          scrollToSection(currentSectionIndex);
+          checkForToolbar(currentSectionIndex);
+  
+          lastScrollTime = now;
+          lastY = event.touches[0].clientY;
+        }
+      });
+    } else {
+      wrapper.addEventListener('wheel', (event) => {
+        const now = new Date().getTime();
+  
+        if (now - lastScrollTime > scrollDelay) {
+          if (event.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+            currentSectionIndex++;
+          } else if (event.deltaY < 0 && currentSectionIndex > 0) {
+            currentSectionIndex--;
+          }
+  
+          scrollToSection(currentSectionIndex);
+          checkForToolbar(currentSectionIndex);
+  
+          lastScrollTime = now;
+        }
+      });
+    }
+  
+    function scrollToSection(index) {
+      sections[index].scrollIntoView({ behavior: 'smooth' });
+    }
+  
+    function checkForToolbar(index) {
+      if (index === 3) {
+        toolbar.style.display = 'block';
+        toolbar.style.animation = 'fade-in 2s ease-in-out';
+        logo.style.display = 'block';
+        logo.style.animation = 'fade-in 2s ease-in-out';
+      } else {
+        toolbar.style.display = 'none';
+        toolbar.style.animation = 'none';
+        logo.style.display = 'none';
+        logo.style.animation = 'none';
+      }
+    }
+  </script>
+
+
+  <!-- <script>
+    const sections = document.querySelectorAll('.section');
+    const wrapper = document.getElementById('wrapper');
+    const toolbar = document.getElementById('toolbar');
+    const logo = document.getElementById('frndLogo');
+
+    let currentSectionIndex = 0;
+    let lastScrollTime = 0;
+    const scrollDelay = 800;
+
+    wrapper.addEventListener('wheel', (event) => {
+      const now = new Date().getTime();
+
+      if (now - lastScrollTime > scrollDelay) {
+        if (event.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+          currentSectionIndex++;
+        } else if (event.deltaY < 0 && currentSectionIndex > 0) {
+          currentSectionIndex--;
+        }
+
+        scrollToSection(currentSectionIndex);
+        checkForToolbar(currentSectionIndex);
+
+        lastScrollTime = now;
+      }
+    });
+
+    function scrollToSection(index) {
+      sections[index].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function checkForToolbar(index) {
+        if (index === 3) {
+        toolbar.style.display = 'block';
+        toolbar.style.animation = 'fade-in 2s ease-in-out'; // Add fade-in animation
+        logo.style.display = 'block';
+        logo.style.animation = 'fade-in 2s ease-in-out'; // Add fade-in animation
+        } else {
+        toolbar.style.display = 'none';
+        toolbar.style.animation = 'none'; // Remove animation
+        logo.style.display = 'none';
+        logo.style.animation = 'none'; // Remove animation
+        }
+    }
+  </script> -->
+
+
+</body>
+</html>

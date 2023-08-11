@@ -1,0 +1,218 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .toolbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .toolbar button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 20px;
+    color: white;
+  }
+
+  .toolbar button:last-child {
+    margin-right: 0;
+    background-color: #FE733B;
+
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    align-items: center;
+  }
+
+  .section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+  }
+
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 110px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    letter-spacing: -8px;
+  }
+
+  .text-content{
+    width: 80%;
+  }
+
+  .text-content-last{
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Space between the two child elements */
+    align-items: center;
+    width: 80%;
+  }
+
+
+  .logo {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+    z-index: 1;
+  }
+
+  .logo img {
+    width: 30px;
+    margin-right: 10px; /* Add margin for spacing between image and text */
+  }
+
+
+  .content-last {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .left-content{
+    flex: 1;
+    text-align: center;
+    margin-right: 100px;
+
+  }
+
+  .right-content {
+    flex: 1;
+    text-align: center;
+    margin-left: 100px;
+    font-size: 80px;
+    display: flex; /* Use flex display to stack divs */
+    flex-direction: column; /* Stack divs vertically */
+    align-items: center; /* Center content horizontally */
+  }
+
+  .right-content > div {
+    margin-bottom: 10px; /* Adjust spacing between divs */
+  }
+
+
+  .right-content p {
+    font-size: 80px;
+    letter-spacing: -2px;
+  }
+
+  .coming-soon {
+    font-size: 24px;
+    margin-top: 10px; /* Adjust spacing */
+    text-align: center; /* Center the text */
+  }
+
+
+    /* Mobile Styles */
+    @media (max-width: 767px) {
+        body, html {
+          overflow: auto;
+        }
+    
+        .toolbar {
+          top: 10px;
+          right: 10px;
+        }
+    
+        .toolbar button {
+          padding: 5px 10px;
+          font-size: 12px;
+        }
+    
+        .content p {
+          font-size: 60px;
+          letter-spacing: -4px;
+        }
+    
+        .text-content {
+          width: 90%;
+        }
+    
+        .text-content-last {
+          width: 90%;
+        }
+    
+    
+        .right-content p {
+          font-size: 50px;
+        }
+    
+        .coming-soon {
+          font-size: 16px;
+        }
+      }
+    
+      /* Tablet Styles */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .toolbar {
+          top: 15px;
+          right: 15px;
+        }
+    
+        .toolbar button {
+          padding: 7px 15px;
+          font-size: 14px;
+        }
+    
+        .content p {
+          font-size: 80px;
+        }
+    
+        /* Adjust other styles as needed for tablet resolution */
+      }

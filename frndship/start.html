@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow: hidden; */
+  }
+
+  #video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  #content1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 110px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    letter-spacing: -8px;
+  }
+
+  #content2 {
+    /* position: absolute; */
+    /* top: 50%; */
+    left: 0;
+    width: 100%;
+    /* height: 100%; */
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 110px;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    letter-spacing: -8px;
+  }
+
+  #logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+    z-index: 1;
+  }
+
+</style>
+<title>frndship</title>
+</head>
+<body>
+<img width="30px" id="logo" src="img/shipLogo.png" alt="Logo">
+  <video id="video-background" autoplay muted loop>
+    <source id='video-source' src="video/bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div id="content1">
+    <p>We're bringing back <span style="color: #FE733B;">social</span> networking.</p>
+  </div>
+
+  <div id="content2">
+    <p>We're bringing back <span style="color: #FE733B;">social</span> networking.</p>
+  </div>
+
+
+  <script>
+    const video = document.getElementById('video-source');
+    let isReversed = false;
+
+    video.addEventListener('timeupdate', function() {
+      if (video.currentTime === video.duration) {
+        if (!isReversed) {
+          video.playbackRate = -1;
+          video.play();
+          isReversed = true;
+        } else {
+          video.playbackRate = 1;
+          video.play();
+          isReversed = false;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
