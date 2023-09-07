@@ -52,6 +52,10 @@
 
     }
 
+    .recycle {
+      display: none;
+    }
+
     
 
 </style>
@@ -86,29 +90,55 @@
     >
 
     <a-entity
+    class="recycle"
     position="200 10 -50"
     scale="0.05 0.05 0.05"
     gltf-model="models/recycle/recycleScene.gltf"
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 8000"
+    visible="false">
+
     >
      </a-entity>
 
-     <!-- <a-entity
-     position="250 150 0"
+     <a-entity
+     class="clickable"
+     id = "recycle"
+     data-action="recycle"
+     clickhandler
+     geometry="primitive: plane; height: 50; width: 150"
+     material="color: green"
+     position="450 150 0" 
+     onclick="arHoverButton()">
+        <a-text value="Sustainability" 
+        align="center" 
+        position="0 0 10" 
+        scale="50 50 50" 
+        color="#fff" 
+        whiteSpace="pre" 
+        backgroundColor="none"
+        baseline="center">
+        </a-text>
+    </a-entity>
+
+     <a-entity
+     class="can"
+     position="250 50 0"
      scale="20 20 20"
      gltf-model="models/BLight.gltf"
      animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
      >
-      </a-entity> -->
+      </a-entity>
 
      <a-entity
      class="clickable"
+     id = "budlightButton"
      data-action="url"
      clickhandler
      geometry="primitive: plane; height: 50; width: 150"
      material="color: #212C64"
      position="450 150 0" 
-     onclick="arHoverButton()">
+     onclick="arHoverButton()"
+     visible = "false">
         <a-text value="LEARN MORE" 
         align="center" 
         position="0 0 10" 
@@ -153,6 +183,7 @@
         function arHoverButton() {
             let button = document.querySelector('#myButton');
             let entities = document.querySelectorAll('.clickable');
+            
 
             entities.forEach(entity => {
                 entity.addEventListener('mouseenter', function() {
@@ -162,22 +193,39 @@
                         let action = entity.dataset.action;
                         console.log("Button clicked!! - " + action);
                         performAction(action); // performAction is a function that you will need to define to perform the desired actions
-                    }
+                        action = null;
+                      }
                 
                 });
 
                 entity.addEventListener('mouseleave', function() {
                     button.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
                     button.style.color = "rgba(255, 255, 255, 0.3)";
+                    action = null;
                 });
             });
         }
 
         function performAction(action) {
+
+          let recycle = document.querySelector('.recycle');
+          let recycleButton = document.querySelector('#recycle');
+          let can = document.querySelector('.can');
+          let budlightButton = document.querySelector('#budlightButton');
+
             if (action === "url") {
                 window.location.href = 'https://www.budlight.com';
+                console.log("url call.");
             } else if (action === "function") {
-                performFunction(); // performFunction is a function that you will need to define
+                //performFunction(); 
+                console.log("function call.");
+            } else if (action === "recycle") {
+              console.log("recycle call.");
+                recycle.setAttribute('visible', true);
+                can.setAttribute('visible', false);
+                recycleButton.setAttribute('visible', false);
+                budlightButton.setAttribute('visible', true);
+
             }
         }
 
