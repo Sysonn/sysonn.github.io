@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 
-<!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
-
 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-<!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 
 <style>
   .arjs-loader {
@@ -41,16 +40,21 @@
     #myButton {
     width: 95%;
     padding: 10px;
-    height: 150px;
+    height: 80px;
     border-radius: 10px;
     text-align: center;
     margin-bottom: 10px;
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 30px;
+    font-family: 'Paytone One', sans-serif;
+
     }
 
     
 
 </style>
-
 
 
 <body style="margin : 0px; overflow: hidden;">
@@ -60,7 +64,7 @@
   </div>
 
   <div id="buttonWrapper">
-   <button id="myButton" class="myButtonClass">My Button</button>
+   <button id="myButton" class="myButtonClass">Go</button>
   </div>
   
   <a-scene
@@ -82,7 +86,7 @@
     >
 
     <a-entity
-    position="250 150 0"
+    position="200 10 -50"
     scale="0.05 0.05 0.05"
     gltf-model="models/recycle/recycleScene.gltf"
     animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
@@ -107,6 +111,7 @@
      onclick="arHoverButton()">
         <a-text value="LEARN MORE" 
         align="center" 
+        position="0 0 10" 
         scale="50 50 50" 
         color="#fff" 
         whiteSpace="pre" 
@@ -114,6 +119,7 @@
         baseline="center">
         </a-text>
     </a-entity>
+    
     </a-nft>
  
 <!---PinBall backup------------------------------------------------>
@@ -136,7 +142,7 @@
     </a-nft>
 <!----------------------------------------------------------------->
 
-    <a-entity camera><a-cursor color="blue" scale="0.8 0.8 0.8"></a-cursor></a-entity>
+    <a-entity camera><a-cursor color="#348CCB" scale="0.8 0.8 0.8" fusetimeout="0"></a-cursor></a-entity>
     
   </a-scene>
 
@@ -150,7 +156,8 @@
 
             entities.forEach(entity => {
                 entity.addEventListener('mouseenter', function() {
-                    button.style.backgroundColor = "blue";
+                    button.style.backgroundColor = "#348CCB";
+                    button.style.color = "white";
                     button.onclick = function() {
                         let action = entity.dataset.action;
                         console.log("Button clicked!! - " + action);
@@ -160,7 +167,8 @@
                 });
 
                 entity.addEventListener('mouseleave', function() {
-                    button.style.backgroundColor = "white";
+                    button.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+                    button.style.color = "rgba(255, 255, 255, 0.3)";
                 });
             });
         }
