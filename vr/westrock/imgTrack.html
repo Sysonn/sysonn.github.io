@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
 
+<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script> -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> 
 
 <style>
   .arjs-loader {
@@ -28,9 +31,9 @@
 
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
-  <!-- <div class="arjs-loader">
+  <div class="arjs-loader">
     <div>Loading, please wait...</div>
-  </div> -->
+  </div>
   <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
@@ -41,7 +44,7 @@
 
     <a-nft
       type="nft"
-      url="./vr/westrock/imgDesc/pinball/pinball"
+      url="./vr/westrock/imgDesc/budLightSmall/budLightSmall"
       emitevents="true"
       smooth="true"
       smoothCount="10"
@@ -50,11 +53,29 @@
     >
 
     <a-entity
-    position="0 0 0"
-    scale="0.01 0.01 0.01"
+    position="250 150 50"
+    scale="20 20 20"
     gltf-model="models/BLight.gltf"
     >
-  </a-entity>
+     </a-entity>
+
+     <a-entity
+     class="clickable"
+     clickhandler
+     geometry="primitive: plane; height: 50; width: 150"
+     material="color: #212C64"
+     position="450 150 0" 
+     onclick="navigateToUrl()">
+     <a-text value="LEARN MORE" 
+     align="center" 
+     scale="50 50 50" 
+     color="#fff" 
+     whiteSpace="pre" 
+     backgroundColor="none"
+     baseline="center">
+     </a-text>
+ </a-entity>
+
     
     </a-nft>
     <a-entity camera></a-entity>
