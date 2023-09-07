@@ -25,15 +25,44 @@
   .arjs-loader div {
     text-align: center;
     font-size: 1.25em;
+    font-family:Arial, Helvetica, sans-serif;
     color: white;
   }
+
+  #buttonWrapper {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+    }
+
+    #myButton {
+    width: 95%;
+    padding: 10px;
+    height: 150px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    }
+
+    
+
 </style>
+
+
 
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
+
+  <div id="buttonWrapper">
+   <button id="myButton" class="myButtonClass">My Button</button>
+  </div>
+  
   <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
@@ -53,34 +82,99 @@
     >
 
     <a-entity
-    position="250 150 50"
-    scale="20 20 20"
-    gltf-model="models/BLight.gltf"
+    position="250 150 0"
+    scale="0.05 0.05 0.05"
+    gltf-model="models/recycle/recycleScene.gltf"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
     >
      </a-entity>
 
+     <!-- <a-entity
+     position="250 150 0"
+     scale="20 20 20"
+     gltf-model="models/BLight.gltf"
+     animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
+     >
+      </a-entity> -->
+
      <a-entity
      class="clickable"
+     data-action="url"
      clickhandler
      geometry="primitive: plane; height: 50; width: 150"
      material="color: #212C64"
      position="450 150 0" 
-     onclick="navigateToUrl()">
-     <a-text value="LEARN MORE" 
-     align="center" 
-     scale="50 50 50" 
-     color="#fff" 
-     whiteSpace="pre" 
-     backgroundColor="none"
-     baseline="center">
-     </a-text>
- </a-entity>
-
-    
+     onclick="arHoverButton()">
+        <a-text value="LEARN MORE" 
+        align="center" 
+        scale="50 50 50" 
+        color="#fff" 
+        whiteSpace="pre" 
+        backgroundColor="none"
+        baseline="center">
+        </a-text>
+    </a-entity>
     </a-nft>
-    <a-entity camera></a-entity>
+ 
+<!---PinBall backup------------------------------------------------>
+    <a-nft
+      type="nft"
+      url="./vr/westrock/imgDesc/pinball/pinball"
+      emitevents="true"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+
+    <a-entity
+    position="250 150 0"
+    scale="20 20 20"
+    gltf-model="models/BLight.gltf"
+    >
+    </a-entity>
+    </a-nft>
+<!----------------------------------------------------------------->
+
+    <a-entity camera><a-cursor color="blue" scale="0.8 0.8 0.8"></a-cursor></a-entity>
+    
   </a-scene>
 
+ 
+
+    <script>
+
+        function arHoverButton() {
+            let button = document.querySelector('#myButton');
+            let entities = document.querySelectorAll('.clickable');
+
+            entities.forEach(entity => {
+                entity.addEventListener('mouseenter', function() {
+                    button.style.backgroundColor = "blue";
+                    button.onclick = function() {
+                        let action = entity.dataset.action;
+                        console.log("Button clicked!! - " + action);
+                        performAction(action); // performAction is a function that you will need to define to perform the desired actions
+                    }
+                
+                });
+
+                entity.addEventListener('mouseleave', function() {
+                    button.style.backgroundColor = "white";
+                });
+            });
+        }
+
+        function performAction(action) {
+            if (action === "url") {
+                window.location.href = 'https://www.budlight.com';
+            } else if (action === "function") {
+                performFunction(); // performFunction is a function that you will need to define
+            }
+        }
+
+
+    </script>
 
 </body>
 
