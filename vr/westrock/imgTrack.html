@@ -3,6 +3,7 @@
 
 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> 
+<script src="https://unpkg.com/aframe-extras@^6.1.1/dist/aframe-extras.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
@@ -56,7 +57,7 @@
       display: none;
     }
 
-    
+
 
 </style>
 
@@ -78,16 +79,24 @@
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
 
+  <a-assets>
+    <a-asset-item id="glb-asset" src="models/trex.glb"></a-asset-item>
+</a-assets>
+
 
     <a-nft
       type="nft"
       url="./vr/westrock/imgDesc/budLightSmall/budLightSmall"
       emitevents="true"
       smooth="true"
-      smoothCount="10"
+      smoothCount="50"
       smoothTolerance=".01"
-      smoothThreshold="5"
+      smoothThreshold="1"
     >
+
+    <!-- smoothCount="10"
+    smoothTolerance=".01"
+    smoothThreshold="5" -->
 
     <a-entity
     class="recycle"
@@ -120,14 +129,22 @@
         </a-text>
     </a-entity>
 
-     <a-entity
+     <!-- <a-entity
      class="can"
-     position="250 50 -100"
+     position="250 40 -200"
      scale="20 20 20"
      gltf-model="models/BLight.gltf"
      animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
      >
-      </a-entity>
+      </a-entity> -->
+      <a-entity
+      class="can"
+      position="300 50 -200"
+      scale="30 30 30"
+      gltf-model="#glb-asset"
+      animation-mixer="clip: run; loop: repeat; timeScale: 1"
+      >
+       </a-entity>
 
      <a-entity
      class="clickable"
@@ -179,6 +196,20 @@
  
 
     <script>
+
+      // document.querySelector(".can").setAttribute("animation-mixer", "clip:idle");
+      //     const timedelay = setTimeout(delayFunction, 2000);
+      //     function delayFunction() {
+      //       document.querySelector(".can").setAttribute("animation-mixer", "clip:run");
+      //     }
+
+      document.querySelector('a-scene').addEventListener('loaded', function () {
+        let entity = document.querySelector('.can');
+        //entity.components['animation-mixer'].play();
+        console.log("////Loader entity comps: " + entity.components);
+        console.log(Object.keys(entity.components));
+        
+      });
 
         function arHoverButton() {
             let button = document.querySelector('#myButton');
