@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derek Sisson - Mixed Reality Specialist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="main.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="gradient-circle circle-1"></div>
+        <div class="gradient-circle circle-2"></div>
+        <div class="gradient-circle circle-3"></div>
+    </div>
+
+    <header>
+        <nav class="">
+            <div class="logo glass-card" style="padding: 8px; padding-left: 20px; width: 65px;"><img src="img/DS_Logo.png" alt="Logo" width="30"></div>
+            <ul class="glass-card nav-links" style="padding: 20px;">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Connect</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+    <div class="hero-visual">
+        <div id="hero-canvas" class="three-js-placeholder">
+            <!-- Three.js interactive element will be loaded here -->
+            <div class="placeholder-text">Interactive 3D Element</div>
+        </div>
+    </div>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="glass-card hero-content">
+                <img src="img/DS_Logo.png" alt="Logo" width="50">
+                <!-- <h3 style="font-weight: 100; margin-bottom: -35px; margin-top: 35px;">[<span style="font-weight: 800;">deh</span>-rik <span style="font-weight: 800;">sis</span>-uhn]</h3> -->
+                <h1>Derek Sisson</h1>
+                <!-- <h3 style="font-weight: 100; margin-top: -25px;">[<span style="font-weight: 800;">deh</span>-rik <span style="font-weight: 800;">sis</span>-uhn]</h3> -->
+                <h2>Mixed Reality Specialist.</h2>
+                <p>AR/VR Developer & Technical Product Manager <br /> Three.js | Mattercraft | Meta SDK | Unity | AI</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn-hero btn-primary">View Projects</a>
+                    <a href="#contact" class="btn-hero btn-secondary">Connect</a>
+                </div>
+                <div style="text-align: center; margin-top: 50px; font-size: 1.2em; ">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+            </div>
+         
+        </section>
+
+        <section id="about" class="about section-padding glass-card">
+            <div class="section-title glass-card">
+                <h2>A little about me.</h2>
+            </div>
+            <div class="about-content">
+                <div class="glass-card about-text">
+                    <img src="img/pfp3.png" alt="Logo" width="150" style="float: right; margin: 25px; border-radius: 30px;">
+                    <p>I combine professional AR/VR development expertise with seasoned project management skills to deliver quality immersive experiences. Having worked on multiple Mattercraft / 8th Wall Phone AR experiences with brands such as Coca-Cola, Michelob, and Procter & Gamble, I bring both technical know-how and structured delivery to every project.</p>
+                    <p>My background as a Developer, Technical Project Manager and Digital Artist means your AR/VR project benefits from someone who understands both the creative and practical sides of development. I excel at turning concepts into reality while maintaining clear communication and realistic timelines.</p>
+                    <div class="project-links">
+                        <a href="#" data-project-file="coca-cola-project.html" class="btn btn-sm btn-secondary">More about me</a>
+                    </div>
+                </div>
+                <div class="glass-card about-services">
+                    <h2>What I Offer:</h2>
+                    <br>
+                    <ul>
+                        <li>AR/VR development with professional polish and project management rigor</li>
+                        <li>Expertise in Zappar's Mattercraft, Three.js/R3F, and Meta SDK</li>
+                        <li>Fast proof-of-concept delivery</li>
+                        <li>Clear milestones, transparent updates, and reliable delivery</li>
+                        <li>Technical solutions that align with your business goals</li>
+                        <li>Friendly, responsive communication throughout our collaboration</li>
+                    </ul>
+                </div>
+            </div>
+            <canvas id="model-canvas"></canvas>
+        </section>
+
+        <section id="projects" class="projects section-padding glass-card">
+            <div class="section-title glass-card">
+                <h2>Some awesome projects.</h2>
+            </div>
+            <div class="project-grid">
+                <!-- Coke Project -->
+                <div class="glass-card project-card">
+                    <div class="project-preview">
+                        <div class="video-placeholder">
+                            <!-- Video placeholder for AR project -->
+                            <div class="placeholder-overlay">
+                                <img src="img/cokething.jpg" alt="Coke" width="500" style="padding-top: 100px;">
+                                <!-- <i class="fas fa-play-circle"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Coca-Cola 3D Experience</h3>
+                        <p class="project-tags">Mattercraft • 3D • Spline </p>
+                        <p>A Mobile 3D experience allowing users to interact with virtual Coca-Cola products through their mobile devices.</p>
+                        <div class="project-links">
+                            <!-- <a href="#" class="btn btn-sm btn-primary">View Demo</a> -->
+                            <a href="#" data-project-file="coca-cola-project.html" class="btn btn-sm btn-primary">View Project</a>
+                            <!-- <a href="#" class="btn btn-sm btn-secondary">Case Study</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beer Project -->
+                <div class="glass-card project-card">
+                    <div class="project-preview">
+                        <div class="video-placeholder">
+                            <div class="placeholder-overlay">
+                            <img src="img/michUltra.jpg" alt="Coke" width="500" style="padding: 30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Michelob AR Packaging</h3>
+                        <p class="project-tags">Mattercraft • Phone AR • Interactive</p>
+                        <p>An immersive Phone AR experience for Michelob, enhancing in-store product exploration.</p>
+                        <div class="project-links">
+                            <a href="#" data-project-file="coca-cola-project.html" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tide Project -->
+                <div class="glass-card project-card">
+                    <div class="project-preview">
+                        <div class="video-placeholder">
+                            <!-- Video placeholder for Unity project -->
+                            <div class="placeholder-overlay">
+                            <img src="img/tidepods.jpg" alt="Coke" width="500" style="padding: 30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Tide Pod AR Experience</h3>
+                        <p class="project-tags">Unity • AR • Retail</p>
+                        <p>An augmented reality shopping experience for Procter & Gamble, enhancing in-store product exploration.</p>
+                        <div class="project-links">
+                            <a href="#" data-project-file="coca-cola-project.html" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display Builder -->
+                <div class="glass-card project-card">
+                    <div class="project-preview">
+                        <!-- <div class="three-js-placeholder">
+                            <div class="placeholder-text">Three.js Interactive Demo</div>
+                        </div> -->
+                        <div class="video-placeholder">
+                            <!-- Video placeholder for Unity project -->
+                            <div class="placeholder-overlay">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>3D Product Configurator</h3>
+                        <p class="project-tags">Three.js • WebGL • Interactive</p>
+                        <p>A web-based 3D configurator allowing customization of products with real-time rendering and physics.</p>
+                        <div class="project-links">
+                            <a href="#" data-project-file="coca-cola-project.html" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                  <!-- Project 7 -->
+                  <div class="glass-card project-card">
+                    <div class="project-preview">
+                        <!-- <div class="three-js-placeholder">
+                            <div class="placeholder-text">Three.js Interactive Demo</div>
+                        </div> -->
+                        <div class="video-placeholder">
+                            <!-- Video placeholder for Unity project -->
+                            <img src="img/project7.jpg" alt="Coke" width="500" style="padding-top: 50px;">
+
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Project 7</h3>
+                        <p class="project-tags">Unity • Meta XR SDK • Blender</p>
+                        <p>A revolutionary passion project harnessing the power of Unity and Meta's XR SDK to build a ground-breaking social virtual reality experience. </p>
+                        <div class="project-links">
+                            <a href="#" data-project-file="coca-cola-project.html" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Project 7 -->
+                 <div class="glass-card project-card">
+                    <div class="project-preview">
+                        <!-- <div class="three-js-placeholder">
+                            <div class="placeholder-text">Three.js Interactive Demo</div>
+                        </div> -->
+                        <div class="video-placeholder">
+                            <!-- Video placeholder for Unity project -->
+                            <div class="placeholder-overlay">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>The Tansu Project</h3>
+                        <p class="project-tags">React-Native • React WebGPU • AI • AR</p>
+                        <p>A mobile digital closet for fashion enthusiasts utilizing AI generated models, NFC Technology, Mobile AR and more. (In Development) </p>
+                        <div class="project-links">
+                            <a href="#" data-project-file="coca-cola-project.html" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+              
+
+             
+
+            </div>
+            <div class="section-cta glass-card">
+                <p>Interested in seeing more projects?</p>
+                <a href="#contact" class="btn-hero btn-secondary">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="skills" class="skills section-padding glass-card">
+            <div class="section-title glass-card">
+                <h2>20 years of skills, a decade of experience.</h2>
+            </div>
+      
+
+            <div class="skills-grid">
+                <div class="glass-card skill-category">
+                    <h3>AR/VR Development</h3>
+                    <ul class="skill-list">
+                        <li>Mattercraft / 8th Wall</li>
+                        <li>Meta XR SDK</li>
+                        <li>Unity</li>
+                        <li>WebXR</li>
+                        <li>ARCore / ARKit/ AR.js</li>
+                    </ul>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3>Web Development</h3>
+                    <ul class="skill-list">
+                        <li>Full-Stack</li>
+                        <li>Three.js / R3F</li>
+                        <li>React & React Native</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>UX Design / HTML / CSS</li>
+                    </ul>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3>Project Management</h3>
+                    <ul class="skill-list">
+                        <li>Agile/Scrum</li>
+                        <li>Cross-Functional Teams</li>
+                        <li>Timelines & Milestones</li>
+                        <li>Requirements Gathering</li>
+                        <li>Wireframing</li>
+                    </ul>
+                </div>
+                <div class="glass-card skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Blender / Figma / Adobe</li>
+                        <li>Version Control (Git)</li>
+                        <li>AI Development Tools</li>
+                        <li>3D Asset Optimization</li>
+                        <li>DevOps</li>
+                    </ul>
+                </div>
+            </div>
+
+                  
+            <div class="tech-grid">
+                <div class="tech-item"><img src="img/mattercraft.png" width="100%"></div>
+                <div class="tech-item"><img src="img/8thwallLogo.png" width="100%"></div>
+                <div class="tech-item"><img src="img/MetaLogo.png" width="80%"></div>
+                <div class="tech-item"><img src="img/unityLogo.png" width="80%"></div>
+                <div class="tech-item"><img src="img/blenderLogo.png" width="100%"></div>
+        
+           
+                <div class="tech-item"><img src="img/arjs.png" width="20%" height="100%"></div>
+            </div>
+            
+        </section>
+
+        <section id="ai-approach" class="ai-approach section-padding">
+            <div class="glass-card ai-content">
+                <img src="img/Ai_Logo.png" alt="Logo" width="80" style="margin-bottom: 20px;">
+                <h2>My Approach to Artificial Intelligence</h2>
+                <p>We are in an emerging era of Ai assisted coding and Ai generated content. As a veteran developer, I leverage these tools heavily to ship code and experiences at unprecedented speeds.</p>
+                <p>I believe in using the right tools for the job, whether that's traditional development or Ai-assisted approaches. We can discuss any concerns about Ai-generated content and set appropriate expectations for your project.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section-padding glass-card">
+            <div class="section-title glass-card">
+                <h2>Connect with me.</h2>
+            </div>
+            <div class="contact-container">
+                <div class="glass-card contact-info">
+                    <p>I balance freelance work as a full-time Technical Product Manager, which means I take on select projects that can be managed alongside my day job. This focused approach ensures I can give your project the attention it deserves while maintaining quality and meeting deadlines.</p>
+                    <p>Ideal for small to medium-sized AR/VR projects, but open to discussion on larger projects – let's discuss how I can help bring your immersive vision to life!</p>
+                    <p>For <span style="font-weight: 800; color:#EEFF00;">full-time</span> inquires, please contact me via email or LinkedIn.</p>
+                    <p style="font-weight: 800;">Thanks for stopping by!</p>
+                    <p>-Derek</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="glass-card contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-type">Project Type</label>
+                            <select id="project-type" name="project-type">
+                                <option value="phone-ar">Phone AR</option>
+                                <option value="web-3d">Web 3D/Three.js</option>
+                                <option value="vr">VR Experience</option>
+                                <option value="mixed-reality">Mixed Reality</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-card">
+        <div class="footer-content">
+            <p>&copy; 2025 Derek Sisson. All rights reserved.</p>
+            <img src="img/DS_Logo.png" alt="Logo" width="30">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+ 
+    </script>
+
+
+
+</body>
+</html>
