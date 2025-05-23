@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- a-frame extras -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-animation-component@5.1.2/dist/aframe-animation-component.min.js"></script> -->
+    <!-- <script src="/aframe-extras-master/src/controls/gamepad-controls.js"></script>
+    <script src="/aframe-extras-master/src/controls/movement-controls.js"></script> -->
+  </head>
+  <body>
+    <a-scene>
+
+      <a-assets>
+        <a-asset-item id="speeder" src="models/Speeder2.glb"></a-asset-item>
+   
+      </a-assets>
+
+      <a-entity light="type: ambient; color: black"></a-entity>
+
+      <a-entity light="type: point; color: #d59eff; intensity: 0.75; distance: 50; decay: 2" position="0 15 -10"></a-entity>
+      <a-entity light="type: point; color: lightblue; intensity: 0.75; distance: 50; decay: 2" position="0 10 10"></a-entity>
+      
+      <a-entity movement-controls="speed: 0.15" position="0 .6 0">
+
+        <a-entity oculus-touch-controls="hand: left" position="0 .6 0"></a-entity>
+        <a-entity oculus-touch-controls="hand: right" position="0 .6 0"></a-entity>
+        <a-entity laser-controls="hand: right" position="0 .6 0"></a-entity>
+
+        <a-entity camera look-controls position="0 .6 0">
+                  <!-- look-controls
+                  wasd-controls="acceleration: 50;
+                                  easing: 40"> -->
+
+          <!-- <a-cursor></a-cursor> -->
+
+          <!-- Cockpit -->
+          <!-- <a-sphere color="red" position="0 -1.1 0"></a-sphere> -->
+
+          
+          <!-- <a-entity oculus-touch-controls="hand: left"></a-entity>
+          <a-entity oculus-touch-controls="hand: right"></a-entity> -->
+          <!-- <a-entity laser-controls="hand: right"></a-entity> -->
+
+
+        </a-entity>
+      </a-entity>
+
+      <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder> -->
+
+
+      
+
+      <a-entity position="0.5 .1 -3" animation="property: position; to: 0.5 1 -3; dur: 8000; elasticity: 400; easing: linear; loop: false" > 
+
+        <a-gltf-model src="#speeder" rotation="0 0 0" scale="1 1 1">
+         
+        </a-gltf-model>
+        
+      </a-entity>
+
+<!-- 
+      <a-box color="red" position="0 .5 -2">
+          <a-animation attribute="rotation" to="0 360 0">
+          </a-animation>
+        
+      </a-box> -->
+
+
+
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="50" height="50" src="#dirt" repeat="10 10"></a-plane>
+      <a-sky src="#sky"></a-sky>
+
+    </a-scene>
+  </body>
+</html>
